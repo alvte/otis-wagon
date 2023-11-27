@@ -1,0 +1,7 @@
+<h1>hello world</h1>
+
+<% @cards.each do |card| %>
+<%# generation de carte %>
+<%# display more => renvoie vers la partial avec locals card: card %>
+  <%= render partial: "partials/card_modal", locals: {card: card} %>
+<% end  %>
