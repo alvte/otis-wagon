@@ -1,0 +1,9 @@
+<h1>Create a New Chatroom</h1>
+
+<%= simple_form_for @chatroom do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to "Back to Chatrooms", user_chatrooms_path(current_user) %>
