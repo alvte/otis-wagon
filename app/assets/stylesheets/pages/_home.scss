@@ -1,1 +1,58 @@
 // Specific CSS for your home-page
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-width: 320px;
+  margin: auto;
+}
+.button {
+  display: block;
+  width: 75%;
+  padding: 16px;
+  margin-bottom: 100px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid;
+  border-color: transparent;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button-yellow {
+  background-color: #fddb3a;
+  border-color: #fddb3a;
+}
+
+.button-blue {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+.button-green {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.button-yellow:hover {
+  background-color: #fff;
+  color: #fddb3a;
+  border-color: #fddb3a;
+}
+
+.button-blue:hover {
+  background-color: #fff;
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.button-green:hover {
+  background-color: #fff;
+  color: #2ecc71;
+  border-color: #2ecc71;
+}

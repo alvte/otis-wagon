@@ -1,6 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# <%= image_tag("logotropfrais.png", alt: "Logo tro frè", style: "width: 500px;") %>
 
+<div class="button-container">
+  <%= link_to "/cards", class: "button button-yellow" do %>
+    Cards
+  <% end %>
 
-<h1>Hello world</h1>
-<%= image_tag("logotropfrais.png", alt: "Logo tro frè", style: "width: 500px;") %>
+  <%= link_to "/chat", class: "button button-blue" do %>
+    Chat with a professional
+  <% end %>
+
+  <%= link_to "/marketplace", class: "button button-green" do %>
+    Marketplace
+  <% end %>
+</div>
