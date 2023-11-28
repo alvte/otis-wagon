@@ -15,6 +15,9 @@ ProductCategory.destroy_all
 Card.destroy_all
 Product.destroy_all
 Category.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
+Professional.destroy_all
 User.destroy_all
 
 User.create!(
@@ -27,6 +30,17 @@ User.create!(
   email: "didier@gmail.com",
   password: "jeneconnaisrienausex",
   admin: false
+)
+
+User.create!(
+  email: "pro@sex.com",
+  password: "pro123",
+  admin: false
+)
+
+Professional.create!(
+  name: "Baptiste",
+  user_id: User.find_by(email: "pro@sex.com").id,
 )
 
 cat_sexual_practices = Category.create!(

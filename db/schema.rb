@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_115357) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_152313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +71,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_115357) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "professional_id", null: false
+    t.index ["professional_id"], name: "index_chatrooms_on_professional_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -81,7 +84,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_115357) do
     t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "professional_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["professional_id"], name: "index_messages_on_professional_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -111,6 +116,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_115357) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "professionals", force: :cascade do |t|
+    t.string "name"
+    t.string "specialization"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_professionals_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -129,8 +143,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_115357) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "card_categories", "cards"
   add_foreign_key "card_categories", "categories"
+  add_foreign_key "chatrooms", "professionals"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "professionals"
   add_foreign_key "messages", "users"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
+  add_foreign_key "professionals", "users"
 end

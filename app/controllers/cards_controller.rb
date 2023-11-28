@@ -3,10 +3,20 @@ class CardsController < ApplicationController
 
   def index
     if params[:query].present?
-      @cards = Pg.Search.multisearch(params[:query])
+      results = PgSearch.multisearch(params[:query])
+      @cards = results.map {|result| result.searchable}
     else
       @cards = Card.all
     end
+
+     #client = OpenAI::Client.new
+     #chaptgpt_response = client.chat(parameters: {
+     # model: "gpt-3.5-turbo",
+     # messages: [{ role: "user", content: "Give me a simple recipe in 10 words'."}]
+     #})
+     #@content = chaptgpt_response["choices"][0]["message"]["content"]
+
+    #The code above is to launch in ChatGPT - to move in the Chat and implement there
   end
 
   # only for admin users
