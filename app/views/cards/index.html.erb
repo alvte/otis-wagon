@@ -1,13 +1,11 @@
-<h1>hello world</h1>
+<%= form_tag(cards_path, method: :get, class: "simple_form search") do %>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search", aria: { label: "Search" } %>
+      </div>
+    <%= submit_tag "Search", class: "search-form-control btn" %>
+  <% end %>
 
-  <%= form_tag(cards_path, method: :get, class: "simple_form search") do %>
-        <div class="search-form-control form-group">
-          <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search", aria: { label: "Search" } %>
-        </div>
-      <%= submit_tag "Search", class: "search-form-control btn" %>
-    <% end %>
-
-<div id="card-container" class="container">
+<div class="container card-container">
   <% @cards.each do |card| %>
   <%# generation de carte %>
   <%# display more => renvoie vers la partial avec locals card: card %>
@@ -15,7 +13,7 @@
     <div class="card-box">
       <div class="card-category"><%= card.categories.first.name %></div>
       <div class="card-title"><%= card.title %></div>
-      <div class="card-rectangle">-----------------------------</div>
+      <div class="card-rectangle">&nbsp;</div>
       <div class="card-description"><%= card.summary %></div>
     </div>
   <% end %>
