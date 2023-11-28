@@ -7,7 +7,7 @@
   </div>
 <% end %>
 
-<div class="container card-container">
+<div class="container card-container" data-controller="controller-scroll-cards" >
   <% @cards.each do |card| %>
 
   <%#Down here is only to show ChatGpt content from the controller cards/index%>
@@ -15,13 +15,18 @@
   <%# generation de carte %>
   <%# display more => renvoie vers la partial avec locals card: card %>
     <%# <%= render partial: "partials/card_modal", locals: {card: card} %>
-    <div class="card-box">
-    <%# <div data-action#click=>pushdown method> %>
+
+  <% counter = 0 %>
+    <div class="card-box"
+        data-scroll-cards-target="card"
+        data-scroll-cards-value=<%= counter%>>
+    <div data-action="click->scroll-cards#push">
       <div class="card-category"><%= card.categories.first.name %></div>
       <div class="card-title"><%= card.title %></div>
-    <%# </div> %>
+    </div>
       <div class="card-rectangle">&nbsp;</div>
       <div class="card-description"><%= card.summary %></div>
     </div>
+    <% counter += 20 %>
   <% end %>
 </div>
