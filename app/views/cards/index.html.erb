@@ -1,5 +1,16 @@
 <h1>hello world</h1>
 
+<div>
+  <nav class="navbar navbar-light bg-light">
+    <%= form_tag(cards_path, method: :get, class: "form-inline") do %>
+      <div class="form-group">
+        <%= text_field_tag :query, params[:query], class: "form-control mr-sm-2", placeholder: "Search", aria: { label: "Search" } %>
+      </div>
+      <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+  </nav>
+</div>
+
 <% @cards.each do |card| %>
 <%# generation de carte %>
 <%# display more => renvoie vers la partial avec locals card: card %>

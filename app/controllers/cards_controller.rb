@@ -2,7 +2,11 @@ class CardsController < ApplicationController
   before_action :find, only: %i[show edit update destroy]
 
   def index
-    @cards = Card.all
+    if params[:query].present?
+      @cards = Pg.Search.multisearch(params[:query])
+    else
+      @cards = Card.all
+    end
   end
 
   # only for admin users
