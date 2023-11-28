@@ -78,5 +78,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# truc de merde
-gem "sassc-rails"
+gem "cloudinary"
