@@ -1,0 +1,56 @@
+.card-box {
+  display: flex;
+  width: 328px;
+  height: 326px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid #000;
+  background: #BDBDBD;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 8px;
+}
+
+.card-category {
+  color: rgba(102, 102, 102, 0.80);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Source Code Pro;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.card-title {
+  color: #000;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Source Code Pro;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.card-rectange {
+  width: 200px;
+  height: 1px;
+  flex-shrink: 0;
+  background: #3C3C43;
+}
+
+.card-description {
+  color: var(--white, #FFF);
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 12px; /* 100% */
+  letter-spacing: 0.374px;
+}
+
+.card-container {
+  margin-bottom: 4px;
+}
