@@ -1,5 +1,11 @@
 class Card < ApplicationRecord
+  has_many_attached :photos
   has_many :card_categories
   has_many :categories, through: :card_categories
-  has_many_attached :photos
+
+  include PgSearch::Model
+  multisearchable against: [ :title, :summary, :content],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
