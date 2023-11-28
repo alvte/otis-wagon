@@ -5,9 +5,16 @@
     Cards
   <% end %>
 
-  <%= link_to user_chatrooms_path(current_user), class: "button button-light-purple" do %>
-    Chat with a professional
+  <% if user_signed_in? %>
+    <%= link_to user_chatrooms_path(current_user), class: "button button-light-purple" do %>
+      Chat with a professional
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: "button button-light-purple" do %>
+      Chat with a professional
+    <% end %>
   <% end %>
+
 
   <%= link_to "/marketplace", class: "button button-middle-purple" do %>
     Marketplace
