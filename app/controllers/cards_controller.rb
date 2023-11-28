@@ -3,7 +3,6 @@ class CardsController < ApplicationController
 
   def index
     if params[:query].present?
-      #@cards = Card.search_by_title_summary_content(params[:query])
       @cards = Pg.Search.multisearch(params[:query])
     else
       @cards = Card.all
