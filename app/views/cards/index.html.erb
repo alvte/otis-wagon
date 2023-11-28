@@ -12,7 +12,15 @@
 </div>
 
 <% @cards.each do |card| %>
+<%= card.title%>
+<% end %>
+
+<%#Down here is only to show ChatGpt content from the controller cards/index%>
+<%# @content %>
+
+
+<%# @cards.each do |card| %>
 <%# generation de carte %>
 <%# display more => renvoie vers la partial avec locals card: card %>
-  <%= render partial: "partials/card_modal", locals: {card: card} %>
-<% end  %>
+  <%# render partial: "partials/card_modal", locals: {card: card} %>
+<%# end  %>
