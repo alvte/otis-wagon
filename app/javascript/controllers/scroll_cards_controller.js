@@ -5,14 +5,30 @@ export default class extends Controller {
   static values = { counter: Number };
 
   connect() {
-    this.cardTargets.forEach(element => {
-      const position = element.dataset.scrollCardsValue * 250;
-      element.style.bottom = `${position}px`;
+    this.cardTargets.forEach(card => {
+      const position = card.dataset.scrollCardsValue * 250;
+      card.style.bottom = `${position}px`;
     });
     }
 
   push_down(event) {
-    console.log(element.dataset.scrollCardsValue);
-    this.parentElement
+    const cardIndex = event.target.parentElement.parentElement.dataset.scrollCardsValue;
+    const isPushedDown = event.target.classList.contains('pushed-down');
+
+    this.cardTargets.forEach(card => {
+      const otherCardIndex = card.dataset.scrollCardsValue;
+
+      if (cardIndex < otherCardIndex && !isPushedDown) {
+        const position = (Number(otherCardIndex) * 250) - 250;
+        card.style.bottom = `${position}px`;
+        card.classList.add('pushed-down');
+      } else if (cardIndex < otherCardIndex && isPushedDown) {
+        const position = Number(otherCardIndex) * 250;
+        card.style.bottom = `${position}px`;
+        card.classList.remove('pushed-down');
+      }
+    });
+
+    event.target.classList.toggle('pushed-down');
   }
-  }
+}
