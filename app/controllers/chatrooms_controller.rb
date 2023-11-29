@@ -8,7 +8,12 @@ class ChatroomsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @chatrooms = @user.chatrooms
+
+    if current_user.professional
+      @chatrooms = current_user.professional.chatrooms
+    else
+      @chatrooms = current_user.chatrooms
+    end
   end
 
   def new
