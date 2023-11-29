@@ -3,8 +3,7 @@ class CardsController < ApplicationController
 
   def index
     if params[:query].present?
-      results = PgSearch.multisearch(params[:query])
-      @cards = results.map {|result| result.searchable}
+      @cards = Card.search(params[:query])
     else
       @cards = Card.all
     end
