@@ -11,7 +11,7 @@
   width: 40px;
 }
 
-#navmobile {
+.navmobile {
   position: fixed; bottom: 0px; /*--- Cette ligne permet de toujours afficher la barre ---*/
   width: 100%;
   height: 50px; /*--- pour régler la largeur de la barre ---*/
@@ -24,6 +24,16 @@
   background: white;
   }
 
-  #navmobile .navmobile_brand img {
+  .navmobile .navmobile-brand img {
     width: 40px;
   }
+
+  .navmobile .navmobile-collapse {
+    flex-grow: 0;
+  }
+
+  .dropup-menu-right {
+    right: 0;
+    left: auto;
+    text-align: end;
+}

@@ -1,15 +1,33 @@
-<div id="navmobile">
+<div class="navbar navbar-light navmobile">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navmobile_brand" do %>
+    <%= link_to root_path, class: "navmobile-brand" do %>
       <%= image_tag "otis-logo-provisoire-white.jpg" %>
     <% end %>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to user_chatrooms_path(current_user), class: "flex__item" do %>
+        <i class="fa-regular fa-comment fs-3"></i>
+      <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "flex__item" do %>
+          <i class="fa-regular fa-comment fs-3"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "/marketplace", class: "flex__item" do%>
+          <div>
+            <i class="fa-solid fa-bag-shopping fs-3"></i>
+          </div>
+      <%end%>
+    </div>
+    <div class="dropup">
+      <a class="dropdown-toggle flex__item" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-regular fa-user"></i>
+      </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
             <%= link_to 'Chat', user_chatrooms_path(current_user) %>
           </li>
@@ -31,3 +49,10 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+<%# <i class="fa-regular fa-user"></i> %>
+<%# #{'active' if params[:query] == category}" %>
