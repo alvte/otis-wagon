@@ -12,6 +12,7 @@ export default class extends Controller {
     }
 
   push_down(event) {
-    console.log("hello world");
+    console.log(element.dataset.scrollCardsValue);
+    this.parentElement
   }
   }
