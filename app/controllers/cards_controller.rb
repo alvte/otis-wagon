@@ -7,19 +7,24 @@ class CardsController < ApplicationController
     else
       @cards = Card.all
     end
-
-     #client = OpenAI::Client.new
-     #chaptgpt_response = client.chat(parameters: {
-     # model: "gpt-3.5-turbo",
-     # messages: [{ role: "user", content: "Give me a simple recipe in 10 words'."}]
-     #})
-     #@content = chaptgpt_response["choices"][0]["message"]["content"]
-
-    #The code above is to launch in ChatGPT - to move in the Chat and implement there
   end
 
   # only for admin users
-  def show; end
+  def show
+
+    # client = OpenAI::Client.new
+    # chaptgpt_response = client.chat(parameters: {
+    # model: "gpt-3.5-turbo",
+    # messages: [{ role: "user", content: "I need in 100 character a short poem about #{@card.title}}"}]
+    # })
+    # @content = chaptgpt_response["choices"][0]["message"]["content"]
+
+    # def message
+    #   "I need in 100 character a short poem about #{Card.title}}"
+    # end
+
+    #The code above is to launch in ChatGPT - to move in the Chat and implement there
+  end
 
   def new
     @card = Card.new
@@ -50,6 +55,7 @@ class CardsController < ApplicationController
 
   def find
     @card = Card.find(params[:id])
+    @chatroom = Chatroom.find(params[:chatroom_id])
   end
 
   def card_params
