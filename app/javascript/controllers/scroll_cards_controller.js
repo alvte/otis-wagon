@@ -1,14 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["card"];
+  static targets = ["card", "innerContainer"];
   static values = { counter: Number };
+
+  get lastCard() {
+    return this.cardTargets[this.cardTargets.length - 1]
+  }
 
   connect() {
     this.cardTargets.forEach(card => {
       const position = card.dataset.scrollCardsValue * 250;
       card.style.bottom = `${position}px`;
     });
+    this.innerContainerTarget.style.height = `${this.lastCard.offsetTop + this.lastCard.offsetHeight}px`
     }
 
   push_down(event) {
@@ -21,11 +26,13 @@ export default class extends Controller {
       if (cardIndex < otherCardIndex && !isPushedDown) {
         const position = (Number(otherCardIndex) * 250) - 250;
         card.style.bottom = `${position}px`;
-        card.classList.add('pushed-down');
+        event.target.parentElement.parentElement.classList.add('pushed-down');
+        this.innerContainerTarget.style.height = `${this.lastCard.offsetTop + this.lastCard.offsetHeight}px`
       } else if (cardIndex < otherCardIndex && isPushedDown) {
         const position = Number(otherCardIndex) * 250;
         card.style.bottom = `${position}px`;
-        card.classList.remove('pushed-down');
+        event.target.parentElement.parentElement.classList.remove('pushed-down');
+        this.innerContainerTarget.style.height = `${this.lastCard.offsetTop + this.lastCard.offsetHeight}px`
       }
     });
 

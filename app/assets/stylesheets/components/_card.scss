@@ -2,6 +2,14 @@
   flex-direction: column;
   display: flex;
   align-items: center;
+  height: 500px;
+  // add the height of the search bar with $search-bar-height
+  // height: calc(100vh - ${$search-bar-height})
+  overflow: scroll;
+  background-color: pink;
+}
+
+.inner-container {
 }
 
 .card-box {
