@@ -24,7 +24,7 @@
       <%# @content %>
       <%#= link_to card_path(card) %>
       <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
-        <%= f.input :category, input_html: { value: card.title, class: "d-none" } %>
+        <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
         <%= f.submit "Chat!" %>
       <% end %>
     </div>

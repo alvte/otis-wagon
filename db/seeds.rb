@@ -20,6 +20,11 @@ Chatroom.destroy_all
 Professional.destroy_all
 User.destroy_all
 
+Professional.create(
+  email: "gpt@gmail.com",
+  password: "gpt123"
+)
+
 User.create!(
   email: "admin@otis.com",
   password: "otisapp",
