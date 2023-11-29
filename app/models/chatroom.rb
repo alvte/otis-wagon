@@ -9,7 +9,8 @@ class Chatroom < ApplicationRecord
     Message.create(
         chatroom: self,
         user: Professional.find_by(email: "gpt@gmail.com"),
-        professional: User.find_by(email: "pro@sex.com"),
+        professional: User.find_by(email: "gpt@gmail.com"),
+        #restart from here to discuss!
         content: default_message
       )
   end
