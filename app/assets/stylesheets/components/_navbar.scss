@@ -10,3 +10,20 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+#navmobile {
+  position: fixed; bottom: 0px; /*--- Cette ligne permet de toujours afficher la barre ---*/
+  width: 100%;
+  height: 50px; /*--- pour régler la largeur de la barre ---*/
+  // background-image: http://illiweb.com/fa/pbucket.gif ; /*--- On donne une couleur/image au fond ---*/
+  border: 1px #000000 solid;  /*--- On ajoute une bordure ---*/
+  -moz-border-radius: 0px 0px 10px 10px; /* pour mozilla */
+  -webkit-border-radius: 0px 0px 10px 10px; /* pour chrome et safari */
+  border-radius:0px 0px 10px 10px;
+  justify-content: space-between;
+  background: white;
+  }
+
+  #navmobile .navmobile_brand img {
+    width: 40px;
+  }
