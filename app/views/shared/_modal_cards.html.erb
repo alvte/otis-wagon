@@ -1,0 +1,23 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn-modal" data-bs-toggle="modal" data-bs-target="#cardModal">
+  More about this...
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+  <div class="modal-sex-card">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="fa-solid fa-message" style="padding-right:12px;"></i><i class="fa-solid fa-cart-shopping"></i>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <h5 class="modal-title" id="cardModalLabel"><%= card.title %></h5>
+          <div class="modal-rectangle">&nbsp;</div>
+        <div class="modal-body">
+          <%= card.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

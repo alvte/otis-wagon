@@ -11,7 +11,6 @@
 <%# @content %>
   <%# generation de carte %>
   <%# display more => renvoie vers la partial avec locals card: card %>
-    <%# <%= render partial: "partials/card_modal", locals: {card: card} %>
 
 <div class="container card-container" data-controller="scroll-cards" >
   <div class="inner-container"
@@ -27,6 +26,7 @@
         </div>
         <div class="card-rectangle">&nbsp;</div>
         <div class="card-description"><%= card.summary %></div>
+        <%= render partial: "shared/modal_cards", locals: {card: card} %>
       </div>
       <% counter += 1 %>
     <% end %>
