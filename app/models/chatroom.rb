@@ -14,15 +14,10 @@ class Chatroom < ApplicationRecord
   end
 
   def default_message
-    # client = OpenAI::Client.new
-    # response = client.chat(parameters: {
-    #   model: "gpt-3.5-turbo",
-    #   messages: [{ role: "user", content: "I need in 100 character a short poem about #{topic}}"}]
-    # })
     client = OpenAI::Client.new
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "Just print hello" }]
+      messages: [{ role: "user", content: "Say Hello to #{user.email}" }]
     })
   end
 
@@ -30,7 +25,16 @@ class Chatroom < ApplicationRecord
     first_message_after_creating
   end
 
-  def topic
-    self.name.split("-").reject { |item| item.match?(/\d/) }.join(" ")
-  end
+  # def topic
+  #   self.name.split("-").reject { |item| item.match?(/\d/) }.join(" ")
+  # end
+
+  # def messages_from_card
+  #   client = OpenAI::Client.new
+  #   response = client.chat(parameters: {
+  #     model: "gpt-3.5-turbo",
+  #     messages: [{ role: "user", content: "I need in 100 character a short poem about #{topic}}"}]
+  #   })
+  # end
+
 end
