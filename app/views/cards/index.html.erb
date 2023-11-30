@@ -1,32 +1,34 @@
+<div class="search-form-control form-group">
 <%= form_tag(cards_path, method: :get) do %>
-  <div class="search-form-control form-group">
-    <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search", aria: { label: "Search" } %>
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
+    <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search for a title or a category...", aria: { label: "Search" } %>
   </div>
 <% end %>
-
-<div class="container card-container">
-  <% @cards.each do |card| %>
 
   <%#Down here is only to show ChatGpt content from the controller cards/index%>
   <%# generation de carte %>
   <%# display more => renvoie vers la partial avec locals card: card %>
-    <%# <%= render partial: "partials/card_modal", locals: {card: card} %>
-    <div class="card-box">
-    <%# <div data-action#click=>pushdown method> %>
-      <div class="card-category"><%= card.categories.first.name %></div>
-      <div class="card-title"><%= card.title %></div>
-    <%# </div> %>
-      <div class="card-rectangle">&nbsp;</div>
-      <div class="card-description"><%= card.summary %></div>
-      <%# @content %>
-      <%#= link_to card_path(card) %>
-      <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
-        <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
-        <%= f.submit "Chat!" %>
-      <% end %>
-    </div>
-  <% end %>
+
+<div class="container card-container" data-controller="scroll-cards" >
+  <div class="inner-container"
+      data-scroll-cards-target="innerContainer">
+      <% counter = 0 %>
+      <% @cards.each do |card| %>
+      <div class="card-box"
+          data-scroll-cards-target="card"
+          data-scroll-cards-value=<%= counter %>>
+        <div data-action="click->scroll-cards#push_down">
+          <div class="card-category"><%= card.categories.first.name %></div>
+          <div class="card-title"><%= card.title %></div>
+        </div>
+        <div class="card-rectangle">&nbsp;</div>
+        <div class="card-description"><%= card.summary %></div>
+        <%= render partial: "shared/modal_cards", locals: {card: card} %>
+            <%#= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+              <%#= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
+              <%#= f.submit "Chat!" %>
+            <%# end %>
+      </div>
+      <% counter += 1 %>
+    <% end %>
+  </div>
 </div>
