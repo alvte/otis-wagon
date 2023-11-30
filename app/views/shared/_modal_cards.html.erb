@@ -1,10 +1,10 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn-modal" data-bs-toggle="modal" data-bs-target="#cardModal">
+<button type="button" class="btn-modal" data-bs-toggle="modal" data-bs-target="#cardModal-<%= card.id %>">
   More about this...
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+<div class="modal fade" id="cardModal-<%= card.id %>" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
   <div class="modal-sex-card">
     <div class="modal-dialog">
       <div class="modal-content">
