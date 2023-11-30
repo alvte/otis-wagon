@@ -24,18 +24,21 @@ User.destroy_all
 User.create!(
   email: "admin@otis.com",
   password: "otisapp",
+  nickname: "Otis",
   admin: true
 )
 
 User.create!(
   email: "didier@gmail.com",
   password: "jeneconnaisrienausex",
+  nickname: "Didier",
   admin: false
 )
 
 User.create!(
   email: "pro@sex.com",
   password: "pro123",
+  nickname: "Baptiste",
   admin: false
 )
 
