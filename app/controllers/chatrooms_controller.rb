@@ -24,6 +24,8 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new(name: "#{params.dig(:join, :category) || "Chat number #{current_user.chatrooms.count()}"}-#{current_user.id}".parameterize)
     @chatroom.user = current_user
     @chatroom.professional_id = last_professional_id
+    @chatroom.from_card = params.dig(:join, :from_card)
+
     if @chatroom.save
       redirect_to user_chatroom_path(current_user, @chatroom), notice: "Chatroom created successfully."
     else
@@ -34,7 +36,7 @@ class ChatroomsController < ApplicationController
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :user_id, :professional_id)
+    params.require(:chatroom).permit(:name, :user_id, :professional_id, :from_card)
   end
 
   def last_professional_id

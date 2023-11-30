@@ -11,6 +11,7 @@
         <div class="modal-header">
             <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
               <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
+              <%= f.input :from_card, input_html: { value: true } %>
               <%= button_tag type: 'submit', class: "btn btn-link p-0" do %>
                 <i class="fa-solid fa-message" ></i>
               <% end %>
