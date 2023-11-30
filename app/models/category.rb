@@ -4,10 +4,6 @@ class Category < ApplicationRecord
   has_many :cards, through: :card_categories
   has_many :products, through: :product_categories
 
-
   include PgSearch::Model
-  multisearchable against: [ :name],
-  using: {
-    tsearch: { prefix: true }
-  }
+  pg_search_scope :search, against: [:name]
 end

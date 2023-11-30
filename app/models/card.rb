@@ -4,7 +4,10 @@ class Card < ApplicationRecord
   has_many :categories, through: :card_categories
 
   include PgSearch::Model
-  multisearchable against: [ :title, :summary, :content],
+  pg_search_scope :search, against: [:title, :summary, :content],
+  associated_against: {
+    categories: [:name]
+  },
   using: {
     tsearch: { prefix: true }
   }
