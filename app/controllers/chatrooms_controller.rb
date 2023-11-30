@@ -21,12 +21,11 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(chatroom_params)
+    @chatroom = Chatroom.new(name: "#{params.dig(:join, :category) || "Chat number #{current_user.chatrooms.count()}"}-#{current_user.id}".parameterize)
     @chatroom.user = current_user
     @chatroom.professional_id = last_professional_id
-
     if @chatroom.save
-      redirect_to user_chatrooms_path(current_user), notice: "Chatroom created successfully."
+      redirect_to user_chatroom_path(current_user, @chatroom), notice: "Chatroom created successfully."
     else
       render :new
     end
@@ -40,6 +39,6 @@ class ChatroomsController < ApplicationController
 
   def last_professional_id
     # Fetch the last professional_id from the database
-    Professional.order(id: :desc).pluck(:id).first
+    Professional.last.id
   end
 end
