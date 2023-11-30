@@ -31,6 +31,12 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def deactivate_chat_GPT
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.on_off_gpt = false
+    @chatroom.save
+  end
+
   private
 
   def chatroom_params

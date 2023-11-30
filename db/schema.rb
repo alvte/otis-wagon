@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_152313) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_150201) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_152313) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "professional_id", null: false
+    t.boolean "on_off_gpt", default: true
     t.index ["professional_id"], name: "index_chatrooms_on_professional_id"
     t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
