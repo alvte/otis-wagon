@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :users, only: [] do
-    resources :chatrooms, only: [:index, :show] do
+    resources :chatrooms, only: %i[index show] do
       resources :messages, only: :create
     end
   end
@@ -14,11 +14,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "pages#home"
-  resources :chatrooms, only: [:show, :new, :create]
+  resources :chatrooms, only: %i[show new create] do
+    patch :deactivate_chat_GPT, on: :member
+  end
 
-  resources :chatrooms, only: [:index, :show] do
+  resources :chatrooms, only: %i[index show] do
     resources :messages, only: :create
   end
 
-  resources :cards, only: [:index, :show]
+  resources :cards, only: %i[index show]
 end

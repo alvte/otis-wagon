@@ -20,4 +20,5 @@
     %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
+  <%= link_to "End bot", deactivate_chat_GPT_chatroom_path(@chatroom), data: {turbo_method: :patch}, remote: true, class: "btn btn-primary" %>
 </div>
