@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
     content = @chatroom.messages.last(10).map(&:content)
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "Here are the last messages of the conversation #{content}, respond in 100 words max accordingly by adding the letter a of the end of your sentence"}]
+      messages: [{ role: "user", content: "You're a health professional. Here are the last messages of the conversation #{content}, respond in 100 words maximum accordingly"}]
     })
   end
 end
