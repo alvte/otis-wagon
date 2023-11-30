@@ -84,9 +84,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_152313) do
     t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "professional_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["professional_id"], name: "index_messages_on_professional_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -146,7 +144,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_152313) do
   add_foreign_key "chatrooms", "professionals"
   add_foreign_key "chatrooms", "users"
   add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "professionals"
   add_foreign_key "messages", "users"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"

@@ -20,10 +20,6 @@ Chatroom.destroy_all
 Professional.destroy_all
 User.destroy_all
 
-Professional.create(
-  email: "gpt@gmail.com",
-  password: "gpt123"
-)
 
 User.create!(
   email: "admin@otis.com",
@@ -45,7 +41,18 @@ User.create!(
 
 Professional.create!(
   name: "Baptiste",
-  user_id: User.find_by(email: "pro@sex.com").id,
+  user_id: User.find_by(email: "pro@sex.com").id
+)
+
+User.create!(
+  email: "gpt@gmail.com",
+  password: "gpt123",
+  admin: false
+)
+
+Professional.create(
+  name: "OtisBot",
+  user_id: User.find_by(email: "gpt@gmail.com").id
 )
 
 cat_sexual_practices = Category.create!(
