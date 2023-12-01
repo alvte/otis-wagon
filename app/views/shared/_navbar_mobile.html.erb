@@ -9,7 +9,7 @@
     </div>
     <div id="chatroom-button">
       <% if user_signed_in? %>
-        <%= link_to user_chatrooms_path(current_user), class: "flex__item" do %>
+        <%= link_to chatrooms_path, data: {turbo_method: :post}, class: "flex__item" do %>
         <i class="fa-regular fa-comment fs-3" style="color: #000000;"></i>
       <% end %>
       <% else %>
