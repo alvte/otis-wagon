@@ -40,29 +40,30 @@ class MessagesController < ApplicationController
   end
 
   def chatGPT_answer_content
+    words = rand(75..100)
     client = OpenAI::Client.new
     content = @chatroom.messages.last(10).map(&:content)
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "You're a health professional. Here are the last messages of the conversation #{content}, respond in 100 words maximum accordingly. If ever the user asks you for a product propose three items related."}]
+      messages: [{ role: "user", content: "You're a health professional. Here are the last messages of the conversation #{content}. If ever the user asks you for a product propose three items related. Respond in #{words} words maximum accordingly"}]
     })
   end
 
-def chatGPT_answer_products(chatroom)
-  @message = Message.new(
-    chatroom: chatroom,
-    user: User.find_by(email: "gpt@gmail.com"),
-    content: chatGPT_answer_content_products.dig("choices", 0, "message", "content")
-  )
-  post_message
-end
+  # def chatGPT_answer_products(chatroom)
+  #   @message = Message.new(
+  #     chatroom: chatroom,
+  #     user: User.find_by(email: "gpt@gmail.com"),
+  #     content: chatGPT_answer_content_products.dig("choices", 0, "message", "content")
+  #   )
+  #   post_message
+  # end
 
-def chatGPT_answer_content
-  client = OpenAI::Client.new
-  content = @chatroom.messages.last(10).map(&:content)
-  response = client.chat(parameters: {
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "You're a vendor professional proposing three items to sell to the user "}]
-  })
-end
+  # def chatGPT_answer_content
+  #   client = OpenAI::Client.new
+  #   content = @chatroom.messages.last(10).map(&:content)
+  #   response = client.chat(parameters: {
+  #     model: "gpt-3.5-turbo",
+  #     messages: [{ role: "user", content: "You're a vendor professional proposing three items to sell to the user "}]
+  #   })
+  # end
 end

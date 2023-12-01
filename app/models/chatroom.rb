@@ -1,5 +1,5 @@
 class Chatroom < ApplicationRecord
-  attr_accessor :from_card, :from_marketplace
+  attr_accessor :from_card, :from_marketplace, :from_card_marketplace
 
   belongs_to :user
   belongs_to :professional, optional: true
@@ -13,6 +13,8 @@ class Chatroom < ApplicationRecord
                 messages_from_card
               elsif from_marketplace
                 messages_from_marketplace
+              elsif from_card_marketplace
+                messages_from_card_from_marketplace
               else
                 default_message
               end
@@ -52,6 +54,15 @@ class Chatroom < ApplicationRecord
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: "You're a vendor of sex products for health purposes and mention it. Say only hello to #{user.nickname}"}]
+    })
+  end
+
+  def messages_from_card_from_marketplace
+    words = rand(25..50)
+    client = OpenAI::Client.new
+    response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: "You're a vendor of sex products for health purposes and mention it. Say only hello to #{user.nickname} Sell me 3 items related to #{topic}, in #{words} words maximum accordingly"}]
     })
   end
 

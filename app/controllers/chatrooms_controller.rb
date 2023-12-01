@@ -26,6 +26,8 @@ class ChatroomsController < ApplicationController
     @chatroom.professional_id = last_professional_id
     @chatroom.from_card = params.dig(:join, :from_card)
     @chatroom.from_marketplace = params.dig(:join, :from_marketplace)
+    @chatroom.from_card_marketplace = params.dig(:join, :from_card_marketplace)
+
     if @chatroom.save
       redirect_to user_chatroom_path(current_user, @chatroom), notice: "Chatroom created successfully."
     else
@@ -42,7 +44,7 @@ class ChatroomsController < ApplicationController
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :user_id, :professional_id, :from_card)
+    params.require(:chatroom).permit(:name, :user_id, :professional_id, :from_card, :from_marketplace, :from_card_marketplace)
   end
 
   def last_professional_id
