@@ -62,7 +62,7 @@ def chatGPT_answer_content
   content = @chatroom.messages.last(10).map(&:content)
   response = client.chat(parameters: {
     model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "You're a vendor proposing three items to sell to the user "}]
+    messages: [{ role: "user", content: "You're a vendor professional proposing three items to sell to the user "}]
   })
 end
 end

@@ -51,7 +51,7 @@ class Chatroom < ApplicationRecord
     client = OpenAI::Client.new
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "You're a vendor of products and mention it. Say only hello to #{user.nickname}"}]
+      messages: [{ role: "user", content: "You're a vendor of sex products for health purposes and mention it. Say only hello to #{user.nickname}"}]
     })
   end
 
