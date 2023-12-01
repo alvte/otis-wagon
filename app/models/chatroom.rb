@@ -1,5 +1,5 @@
 class Chatroom < ApplicationRecord
-  attr_accessor :from_card
+  attr_accessor :from_card, :from_marketplace
 
   belongs_to :user
   belongs_to :professional, optional: true
@@ -9,7 +9,13 @@ class Chatroom < ApplicationRecord
 
 
   def first_message_after_creating
-    message = from_card ? messages_from_card : default_message
+    message = if from_card
+                messages_from_card
+              elsif from_marketplace
+                messages_from_marketplace
+              else
+                default_message
+              end
     Message.create(
       chatroom: self,
       user: User.find_by(email: "gpt@gmail.com"),
@@ -38,6 +44,14 @@ class Chatroom < ApplicationRecord
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: "You're a health professional but don't mention it. Say only hello to #{user.nickname}. Explain me this topic #{topic}, in 100 words maximum accordingly"}]
+    })
+  end
+
+  def messages_from_marketplace
+    client = OpenAI::Client.new
+    response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: "You're a vendor of products and mention it. Say only hello to #{user.nickname}"}]
     })
   end
 

@@ -7,7 +7,7 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:user_id]) || current_user[:id]
 
     if current_user.professional
       @chatrooms = current_user.professional.chatrooms
@@ -25,7 +25,7 @@ class ChatroomsController < ApplicationController
     @chatroom.user = current_user
     @chatroom.professional_id = last_professional_id
     @chatroom.from_card = params.dig(:join, :from_card)
-
+    @chatroom.from_marketplace = params.dig(:join, :from_marketplace)
     if @chatroom.save
       redirect_to user_chatroom_path(current_user, @chatroom), notice: "Chatroom created successfully."
     else
