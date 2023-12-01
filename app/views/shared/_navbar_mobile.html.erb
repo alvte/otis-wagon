@@ -1,6 +1,13 @@
 <div class="navbar navbar-light navmobile">
   <div class="container-fluid">
-    <div>
+    <div id="cards-button">
+        <%= link_to cards_path, class: "flex__item" do%>
+            <div>
+              <i class="fa-solid fa-bag-shopping fs-3"></i>
+            </div>
+        <%end%>
+    </div>
+    <div id="chatroom-button">
       <% if user_signed_in? %>
         <%= link_to user_chatrooms_path(current_user), class: "flex__item" do %>
         <i class="fa-regular fa-comment fs-3"></i>
@@ -11,7 +18,7 @@
         <% end %>
       <% end %>
     </div>
-    <div>
+    <div id="marketplace-button">
       <%= link_to "/marketplace", class: "flex__item" do%>
           <div>
             <i class="fa-solid fa-bag-shopping fs-3"></i>
