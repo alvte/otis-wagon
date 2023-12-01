@@ -1,8 +1,10 @@
+<div class="bg-light p-1 pb-0" id="div-search">
 <div class="search-form-control form-group">
 <%= form_tag(cards_path, method: :get) do %>
     <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search for a title or a category...", aria: { label: "Search" } %>
   </div>
 <% end %>
+</div>
 
   <%#Down here is only to show ChatGpt content from the controller cards/index%>
   <%# generation de carte %>
