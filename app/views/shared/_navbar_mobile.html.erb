@@ -15,11 +15,14 @@
       <% end %>
     </div>
     <div>
-      <%= link_to "/marketplace", class: "flex__item" do%>
-          <div>
-            <i class="fa-solid fa-bag-shopping fs-3"></i>
-          </div>
-      <%end%>
+
+    <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+      <%= f.input :from_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
+      <%= button_tag type: 'submit', class: "flex__item border-0" do %>
+        <i class="text-primary fa-solid fa-bag-shopping fs-3"></i>
+    <% end %>
+    <% end %>
+
     </div>
     <div class="dropup">
       <a class="dropdown-toggle flex__item" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
