@@ -1,4 +1,19 @@
 <div class="bg-light p-1 pb-0" id="div-search">
+<div class="my-icon-to-log">
+  <button class="my-icon-to-log" type="div" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    A
+  </button>
+  <ul class="dropdown-menu dropdown-homemade" aria-labelledby="dropdownMenuButton1">
+    <li><%= link_to "Home page", root_path %></li>
+    <% if current_user %>
+      <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}  %></li>
+    <% else %>
+      <li><%= link_to "Log in", new_user_session_path%></li>
+    <% end %>
+  </ul>
+</div>
+
+
 <div class="search-form-control form-group">
 <%= form_tag(cards_path, method: :get) do %>
     <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search for a title or a category...", aria: { label: "Search" } %>

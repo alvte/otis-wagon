@@ -5,8 +5,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 32px;
-  background: var(--Black, #000);
-  color: var(--White, #FFF);
+  color: black;
   font-family: Source Code Pro;
   font-size: 12px;
   font-style: normal;
@@ -14,13 +13,20 @@
   line-height: 21px;
 }
 
+.modal-dialog {
+  position: absolute;
+  top: auto;
+  left: auto;
+  right: auto;
+}
+
 .modal-content {
   border-radius: 12px;
-  background: var(--Dark-pink, #D62A5E);
+  background: whitesmoke
 }
 
 .modal-header {
-  color: var(--white, #FFF);
+  color: black;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Source Code Pro;
   font-size: 18px;
@@ -30,25 +36,29 @@
 }
 
 .modal-body {
-  color: var(--white, #FFF);
+  color: black;
   font-family: Nunito;
   font-size: 16px;
   font-style: normal;
   font-weight: 200;
   line-height: 22px;
   letter-spacing: 0.374px;
+  white-space: break-spaces;
+  text-align: justify;
+  margin-bottom: -8%;
 }
 
 .modal-rectangle {
-  border-top: 3px solid whitesmoke;
+  border-top: 3px solid black;
   margin: auto;
   width: 90%;
   height: 1px;
+  margin-bottom: 3%;
 }
 
 .modal-title {
   padding-left: 32px;
-  color: var(--white, #FFF);
+  color: black;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Source Code Pro;
   font-size: 18px;
@@ -60,4 +70,32 @@
 
 .modal-footer, .modal-header {
   border: none;
+}
+
+.modal-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-photo img {
+  width: 60vw;
+  border-radius: 10px;
+}
+
+.modal-foot {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 4%;
+  gap: 3%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.modal-button-to-chat {
+  box-shadow: 3px 2px 2px #ff068d;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+  color: whitesmoke;
 }

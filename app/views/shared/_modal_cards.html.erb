@@ -9,28 +9,33 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-            <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
-              <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
-              <%= f.input :from_card, label: false, input_html: { value: true , class: "d-none" } %>
-              <%= button_tag type: 'submit', class: "btn btn-link p-0" do %>
-                <i class="fa-solid fa-message" ></i>
-              <% end %>
-            <% end %>
-            <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
-              <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
-              <%= f.input :from_card_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
-              <%= button_tag type: 'submit', class: "btn btn-link" do %>
-                <i class="fa-solid fa-cart-shopping"></i>
-              <% end %>
-            <% end %>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
           <h5 class="modal-title" id="cardModalLabel"><%= card.title %></h5>
           <div class="modal-rectangle">&nbsp;</div>
+          <div class="modal-photo">
+            <%= cl_image_tag card.photos[0].key, crop: :fit %>
+          </div>
         <div class="modal-body">
           <%= card.content %>
-        </div>
       </div>
+          <div class="modal-foot">
+            <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+                    <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
+                    <%= f.input :from_card, label: false, input_html: { value: true , class: "d-none" } %>
+                    <%= button_tag type: 'submit', class: "modal-button-to-chat" do %>
+                      Talk with a specialist about it!
+                    <% end %>
+                  <% end %>
+                  <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+                    <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
+                    <%= f.input :from_card_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
+                    <%= button_tag type: 'submit', class: "modal-button-to-chat" do %>
+                      Find products related to this topic!
+                    <% end %>
+                  <% end %>
+              </div>
+    </div>
     </div>
   </div>
 </div>
