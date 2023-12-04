@@ -8,6 +8,7 @@
 .inner-container {
 }
 
+
 .card-box {
   display: flex;
   width: 93%;
@@ -17,8 +18,8 @@
   align-items: flex-start;
   gap: 24px;
   flex-shrink: 0;
-  border-radius: 4px;
-  border: 1px solid #000;
+  border-radius: 10px;
+  border: 2px solid #000;
   background: white;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin-bottom: 8px;
@@ -30,8 +31,32 @@
 
 }
 
+.inner-container > .sexual-relations {
+  border: 2px solid $red;
+  box-shadow: 3px -3px 3px rgba($red, 0.75);
+}
+
+
+.inner-container > .couple-life {
+  border: 1px solid $blue;
+  box-shadow: 3px -3px 3px rgba($blue, 0.75);
+
+}
+
+.inner-container > .disease {
+  border: 1px solid $green;
+  box-shadow: 3px -3px 3px rgba($green, 0.75);
+
+}
+
+.inner-container > .self-pleasure {
+  border: 1px solid $orange;
+  box-shadow: 3px -3px 3px rgba($orange, 0.75);
+}
+
+
 .card-category {
-  color: rgba(102, 102, 102, 0.80);
+  color: rgba(255, 255, 255, 0.8);
   font-family: Source Code Pro;
   font-size: 14px;
   width: fit-content;
@@ -45,6 +70,30 @@
   margin-top: -6px;
   margin-left: 6px;
 }
+
+.card-box .sexual-relations {
+  background-color: rgba($red, .5);
+}
+
+
+.card-box .couple-life {
+  background-color: $blue;
+
+}
+
+.card-box .disease {
+  background-color: $green;
+
+}
+
+.card-box .self-pleasure {
+background-color: $orange;
+}
+
+
+
+
+
 
 .card-title {
   color: #000;
@@ -85,13 +134,4 @@
   top: 0;
   width: 100%;
   z-index: 10;
-}
-
-.sexual-relations {
-  background-color: $red;
-}
-
-.couple-life {
-  background-color: $blue;
-
 }

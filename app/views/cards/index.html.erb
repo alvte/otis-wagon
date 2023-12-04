@@ -1,4 +1,4 @@
-<div class="bg-light p-1 pb-0" id="div-search">
+<div class="bg-white p-1 pb-0" id="div-search">
 <div class="search-form-control form-group">
 <%= form_tag(cards_path, method: :get) do %>
     <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search for a title or a category...", aria: { label: "Search" } %>
@@ -15,7 +15,7 @@
       data-scroll-cards-target="innerContainer">
       <% counter = 0 %>
       <% @cards.each do |card| %>
-      <div class="card-box <%= card.categories.first.name.downcase.delete(" ") %>"
+      <div class="card-box <%= card.categories.first.name.downcase.gsub(' ', '-') %>"
           data-scroll-cards-target="card"
           data-scroll-cards-value=<%= counter %>>
         <div data-action="click->scroll-cards#push_down" class="w-100">
