@@ -1,6 +1,5 @@
 # app/models/chatroom.rb
 class Chatroom < ApplicationRecord
-  attr_accessor :from_card, :from_marketplace, :from_card_marketplace
 
   belongs_to :user
   belongs_to :professional, optional: true
