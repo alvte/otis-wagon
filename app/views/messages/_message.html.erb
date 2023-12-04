@@ -1,5 +1,5 @@
 
-<% if message.user.id === locals[:user].id %>
+<% if message.user != message.chatroom.professional.user %>
   <div class="requester-message" id="message-<%= message.id %>" style='text-align:right'>
     <div class="d-flex">
       <div class= "separator">

@@ -3,10 +3,9 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
   <h1 class= "title mb-5">#<%= @chatroom.name %></h1>
-
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message, locals: {user: message.chatroom.user} %>
+      <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
@@ -18,16 +17,20 @@
       placeholder: "Message ##{@chatroom.name}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= button_tag type: 'submit', class: "btn mb-3" do %>
-      <i class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
-    <% end %>
+
+    <%= f.submit 'SEND', class: "btn mb-3"%>
+
 
   <% end %>
-
-
 
 
   <div class="mb-3 mx-auto">
     <%= link_to "switch to a pro", deactivate_chat_GPT_chatroom_path(@chatroom), data: {turbo_method: :patch}, remote: true, class: "btn btn-rounded text-white bg-success" %>
   </div>
 </div>
+
+
+<%# <%= f.submit '', class: "btn mb-3" do %>
+<%# <%= button_tag type: 'submit', class: "btn mb-3" do %>
+<%# <i class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
+    <% end %>
