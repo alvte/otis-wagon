@@ -1,5 +1,5 @@
 .chatroom {
-  background: white;
+  background: radial-gradient(45% 35% at 35% 35%, #74D7EE 0%, #FFF 100%);
   margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
@@ -7,11 +7,84 @@
   justify-content: space-between;
   flex-grow: 1;
 
-  h1 {
-    border-bottom: 1px solid $gray-200;
-    margin-bottom: 0;
-    padding: 1rem;
+  // h1 {
+  //   border-bottom: 1px solid $gray-200;
+  //   margin-bottom: 0;
+  //   padding: 1rem;
+  // }
+
+  .separator {
+    margin: 0px;
+    // text-align: left;
+    border-top: 2px dotted grey;
+    overflow: show;
+    flex-grow: 1;
   }
+   .separator p {
+    margin: 0;
+   }
+
+
+  .separator-others {
+    text-align: left;
+    border: none;
+    overflow: show;
+    text-shadow: 1px 1px 1px lightgrey;
+    color: green
+  }
+  .separator-others small {
+    margin-top: -15px;
+    display: block;
+    font-style: italic;
+    // background: #fff;
+    z-index: 10;
+    padding: 2px 2px;
+    overflow: hidden;
+    float: right;
+    text-shadow: 1px 1px 1px lightgrey;
+  }
+
+  .separator-me {
+    text-align: right;
+    border: none;
+    overflow: show;
+    text-shadow: 1px 1px 2px pink;
+    color: grey;
+  }
+  .separator-me small {
+    margin-top: -15px;
+    display: block;
+    font-style: italic;
+    // background: #fff;
+    z-index: 10;
+    padding: 2px 2px;
+    overflow: hidden;
+    float: left;
+    text-shadow: 1px 1px 2px pink;
+  }
+
+  // .separator {
+  //   margin-top: 100px;
+  //   text-align: right;
+  //   position: relative;
+  // }
+
+  // .separator hr {
+  //     position: absolute;
+  //     z-index: 1;
+  //     width: 100%;
+  //     border-top: 1px dotted red;
+  // }
+
+  // .separator small {
+  //     position: absolute;
+  //     right: 0px;
+  //     top: 0px;
+  //     font-style: italic;
+  //     // background: #fff;
+  //     z-index: 10;
+  //     padding: 2px 20px;
+  // }
 
   .messages {
     height: 100%;
@@ -19,12 +92,47 @@
     padding: 1rem;
   }
 
+  // hr.new3 {
+  //   border-top: 1px dotted red;
+  // }
+
   #new_message {
-    border-top: 1px solid $gray-200;
-    padding: 1rem;
+    display: flex;
+    width: 360px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 
     .form-group {
-      margin-bottom: 0;
+      display: flex;
+      width: 360px;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
     }
   }
+
+  .title {
+    color: #6D6D6D;
+    text-align: center;
+    font-family: Source Code Pro;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+  }
+
 }
+
+
+// #new_message {
+//   border-top: 1px solid $gray-200;
+//   padding: 1rem;
+
+//   .form-group {
+//     margin-bottom: 0;
+//   }
+// }

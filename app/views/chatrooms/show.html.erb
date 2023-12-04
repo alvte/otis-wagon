@@ -2,11 +2,11 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1>#<%= @chatroom.name %></h1>
+  <h1 class= "title mb-5">#<%= @chatroom.name %></h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <%= render "messages/message", message: message, locals: {user: message.chatroom.user} %>
     <% end %>
   </div>
 
@@ -18,7 +18,16 @@
       placeholder: "Message ##{@chatroom.name}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= button_tag type: 'submit', class: "btn mb-3" do %>
+      <i class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
+    <% end %>
+
   <% end %>
-  <%= link_to "End bot", deactivate_chat_GPT_chatroom_path(@chatroom), data: {turbo_method: :patch}, remote: true, class: "btn btn-primary" %>
+
+
+
+
+  <div class="mb-3 mx-auto">
+    <%= link_to "switch to a pro", deactivate_chat_GPT_chatroom_path(@chatroom), data: {turbo_method: :patch}, remote: true, class: "btn btn-rounded text-white bg-success" %>
+  </div>
 </div>

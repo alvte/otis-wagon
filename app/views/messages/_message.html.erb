@@ -1,7 +1,32 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.email %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-</div>
+
+<% if message.user.id === locals[:user].id %>
+  <div class="requester-message" id="message-<%= message.id %>" style='text-align:right'>
+    <div class="d-flex">
+      <div class= "separator">
+        <p>&nbsp</p>
+      </div>
+      <div class="separator-me">
+        <small >
+          <i><%= message.created_at.strftime("%d.%m.%g %T") %></i>
+        </small>
+        </div>
+      </div>
+      <p><%= message.content %></p>
+  </div>
+<% else %>
+  <div class="answer-message" id="message-<%= message.id %>">
+    <div class="d-flex">
+      <div class="separator-others">
+        <small>
+          <strong><%= message.user.nickname %></strong>
+          <i><%= message.created_at.strftime("%d.%m.%g %T") %></i>
+        </small>
+      </div>
+      <div class= "separator text-test">
+        <p>&nbsp</p>
+      </div>
+    </div>
+    <p><%= message.content %></p>
+  </div>
+<% end %>
+<br>
