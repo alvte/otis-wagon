@@ -21,14 +21,17 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(name: "#{params.dig(:join, :category) || "Chat number #{current_user.chatrooms.count()}"}-#{current_user.id}".parameterize)
-    @chatroom.user = current_user
-    @chatroom.professional_id = last_professional_id
-    @chatroom.from_card = params.dig(:join, :from_card)
-    @chatroom.from_marketplace = params.dig(:join, :from_marketplace)
-    @chatroom.from_card_marketplace = params.dig(:join, :from_card_marketplace)
+    @chatroom = Chatroom.new(
+      name: chatroom_name,
+      user: current_user,
+      professional_id: last_professional_id,
+      from_card: params.dig(:join, :from_card),
+      from_marketplace: params.dig(:join, :from_marketplace),
+      from_card_marketplace: params.dig(:join, :from_card_marketplace)
+      )
 
     if @chatroom.save
+      GetProfessionalAnswerFromOpenai.new(@chatroom).call
       redirect_to user_chatroom_path(current_user, @chatroom), notice: "Chatroom created successfully."
     else
       render :new
@@ -44,11 +47,21 @@ class ChatroomsController < ApplicationController
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :user_id, :professional_id, :from_card, :from_marketplace, :from_card_marketplace)
+    params.require(:chatroom).permit(
+      :name,
+      :user_id,
+      :professional_id,
+      :from_card,
+      :from_marketplace,
+      :from_card_marketplace
+      )
   end
 
   def last_professional_id
-    # Fetch the last professional_id from the database
     Professional.last.id
+  end
+
+  def chatroom_name
+    "#{params.dig(:join, :category) || "Chat number #{current_user.chatrooms.count()}"}-#{current_user.id}".parameterize
   end
 end

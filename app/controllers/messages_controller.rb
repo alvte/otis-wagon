@@ -8,7 +8,11 @@ class MessagesController < ApplicationController
     post_message
     if @chatroom.on_off_gpt
       # while chatgpt is on return chatGPT_answer(@chatroom)
-      chatGPT_answer(@chatroom)
+      if @chatroom.from_marketplace || @chatroom.from_card_marketplace
+        chatGPT_answer_marketplace(@chatroom)
+      else
+        chatGPT_answer(@chatroom)
+      end
     end
   end
 
@@ -45,25 +49,28 @@ class MessagesController < ApplicationController
     content = @chatroom.messages.last(10).map(&:content)
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "You're a health professional. Here are the last messages of the conversation #{content}. If ever the user asks you for a product propose three items related. Respond in #{words} words maximum accordingly"}]
+      messages: [{ role: "user", content: "You're a health professional. Here are the last messages of the conversation #{content}. Respond in #{words} words maximum accordingly"}]
     })
   end
 
-  # def chatGPT_answer_products(chatroom)
-  #   @message = Message.new(
-  #     chatroom: chatroom,
-  #     user: User.find_by(email: "gpt@gmail.com"),
-  #     content: chatGPT_answer_content_products.dig("choices", 0, "message", "content")
-  #   )
-  #   post_message
-  # end
+  def chatGPT_answer_marketplace(chatroom)
+    @message = Message.new(
+      chatroom: chatroom,
+      user: User.find_by(email: "gpt@gmail.com"),
+      content: chatGPT_answer_content_marketplace.dig("choices", 0, "message", "content")
+    )
+    post_message
+  end
 
-  # def chatGPT_answer_content
-  #   client = OpenAI::Client.new
-  #   content = @chatroom.messages.last(10).map(&:content)
-  #   response = client.chat(parameters: {
-  #     model: "gpt-3.5-turbo",
-  #     messages: [{ role: "user", content: "You're a vendor professional proposing three items to sell to the user "}]
-  #   })
-  # end
+
+  #Product.all.map
+
+   def chatGPT_answer_content_marketplace
+     client = OpenAI::Client.new
+    content = @chatroom.messages.last(10).map(&:content)
+     response = client.chat(parameters: {
+       model: "gpt-3.5-turbo",
+       messages: [{ role: "user", content: "You're a vendor professional proposing three items to sell to the user "}]
+     })
+   end
 end
