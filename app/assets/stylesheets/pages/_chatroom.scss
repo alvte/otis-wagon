@@ -1,0 +1,96 @@
+.chatroom {
+  background: radial-gradient(45% 35% at 35% 35%, $light-blue 0%, #FFF 100%);
+  margin-top: 9px;
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  .separator {
+    margin: 0px;
+    // text-align: left;
+    border-top: 2px dotted grey;
+    overflow: show;
+    flex-grow: 1;
+  }
+   .separator p {
+    margin: 0;
+   }
+
+  .separator-others {
+    text-align: left;
+    border: none;
+    overflow: show;
+    text-shadow: 1px 1px 1px lightgrey;
+    color: green
+  }
+  .separator-others small {
+    margin-top: -15px;
+    display: block;
+    font-style: italic;
+    // background: #fff;
+    z-index: 10;
+    padding: 2px 2px;
+    overflow: hidden;
+    float: right;
+    text-shadow: 1px 1px 1px lightgrey;
+  }
+
+  .separator-me {
+    text-align: right;
+    border: none;
+    overflow: show;
+    text-shadow: 1px 1px 2px pink;
+    color: grey;
+  }
+  .separator-me small {
+    margin-top: -15px;
+    display: block;
+    font-style: italic;
+    // background: #fff;
+    z-index: 10;
+    padding: 2px 2px;
+    overflow: hidden;
+    float: left;
+    text-shadow: 1px 1px 2px pink;
+  }
+
+
+  .messages {
+    height: 100%;
+    overflow: scroll;
+    padding: 1rem;
+  }
+
+
+  #new_message {
+    display: flex;
+    width: 360px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    .form-group {
+      display: flex;
+      width: 360px;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+  }
+
+  .title {
+    color: #6D6D6D;
+    text-align: center;
+    font-family: Source Code Pro;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+  }
+
+}
