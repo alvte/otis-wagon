@@ -15,14 +15,16 @@
       data-scroll-cards-target="innerContainer">
       <% counter = 0 %>
       <% @cards.each do |card| %>
-      <div class="card-box"
+      <div class="card-box <%= card.categories.first.name.downcase.delete(" ") %>"
           data-scroll-cards-target="card"
           data-scroll-cards-value=<%= counter %>>
-        <div data-action="click->scroll-cards#push_down">
-          <div class="card-category"><%= card.categories.first.name %></div>
-          <div class="card-title"><%= card.title %></div>
+        <div data-action="click->scroll-cards#push_down" class="w-100">
+          <div class="card-title" style="height: 65px;">
+            <%= card.title %>
+            <div class="card-category <%= card.categories.first.name.downcase.gsub(' ', '-') %>"><%= card.categories.first.name %></div>
+          </div>
+          <div class="card-rectangle">&nbsp;</div>
         </div>
-        <div class="card-rectangle">&nbsp;</div>
         <div class="card-description"><%= card.summary %></div>
         <%= render partial: "shared/modal_cards", locals: {card: card} %>
             <%#= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
