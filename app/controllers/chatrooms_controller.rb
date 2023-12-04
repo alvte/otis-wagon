@@ -47,7 +47,14 @@ class ChatroomsController < ApplicationController
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :user_id, :professional_id, :from_card, :from_marketplace, :from_card_marketplace)
+    params.require(:chatroom).permit(
+      :name,
+      :user_id,
+      :professional_id,
+      :from_card,
+      :from_marketplace,
+      :from_card_marketplace
+      )
   end
 
   def last_professional_id

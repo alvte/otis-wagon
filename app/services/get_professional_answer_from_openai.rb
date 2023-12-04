@@ -34,8 +34,9 @@ class GetProfessionalAnswerFromOpenai
   end
 
   def messages_from_card
+    words = rand(50..75)
     chat_with_gpt("You're a health professional but don't mention it. Say only hello to #{@user.nickname}.
-      Explain me this topic #{topic}, in 100 words maximum accordingly")
+      Explain me this topic #{topic}, in #{words} words maximum accordingly")
   end
 
   def messages_from_marketplace
@@ -43,7 +44,7 @@ class GetProfessionalAnswerFromOpenai
   end
 
   def messages_from_card_from_marketplace
-    words = rand(25..50)
+    words = rand(50..75)
     chat_with_gpt("You're a vendor of sex products for health purposes and mention it. Say only hello to #{@user.nickname}.
       Sell me 3 items related to #{topic}, in #{words} words maximum accordingly")
   end
