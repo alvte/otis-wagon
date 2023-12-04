@@ -22,7 +22,6 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.new(name: chatroom_name, user: current_user, professional_id: last_professional_id, from_card: params.dig(:join, :from_card), from_marketplace: params.dig(:join, :from_marketplace), from_card_marketplace: params.dig(:join, :from_card_marketplace))
-    raise
     if @chatroom.save
       GetProfessionalAnswerFromOpenai.new(@chatroom).call
       redirect_to user_chatroom_path(current_user, @chatroom), notice: "Chatroom created successfully."
