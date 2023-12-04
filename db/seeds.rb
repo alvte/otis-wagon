@@ -89,10 +89,10 @@ card_anal_sex = Card.new(
 
 card_anal_sex.categories = [cat_sexual_relations]
 
-anal_sex_urls = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/xxejtshwmrsmxolltxof.webp"]
+anal_sex_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701699892/anal.png"]
 anal_sex_urls.each do |url|
   file = URI.open(url)
-  card_anal_sex.photos.attach(io: file, filename: "anal_sex.png", content_type: 'image/jpg')
+  card_anal_sex.photos.attach(io: file, filename: "anal_sex.png", content_type: 'image/png')
   card_anal_sex.save
 end
 
