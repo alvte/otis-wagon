@@ -18,8 +18,10 @@
       wrapper_html: {class: "flex-grow-1"}
     %>
 
-    <%= f.submit 'SEND', class: "btn mb-3"%>
-
+    <%# <%= f.submit 'SEND', class: "btn mb-3"%>
+    <%= button_tag type: 'submit', class: "btn mb-3" do%>
+    <i class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
+    <% end %>
 
   <% end %>
 
