@@ -1,51 +1,30 @@
 <div class="navbar navbar-light navmobile">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navmobile-brand" do %>
-      <%= image_tag "otis-logo-provisoire-white.jpg" %>
-    <% end %>
-    <div>
+    <div id="cards-button">
+        <%= link_to cards_path, class: "flex__item" do%>
+            <div>
+              <i class="fa-solid fa-question" style="color: #000000;"></i>
+            </div>
+        <%end%>
+    </div>
+    <div id="chatroom-button">
       <% if user_signed_in? %>
-        <%= link_to user_chatrooms_path(current_user), class: "flex__item" do %>
-        <i class="fa-regular fa-comment fs-3"></i>
+        <%= link_to chatrooms_path, data: {turbo_method: :post}, class: "flex__item" do %>
+        <i class="fa-regular fa-comment fs-3" style="color: #000000;"></i>
       <% end %>
       <% else %>
         <%= link_to new_user_session_path, class: "flex__item" do %>
-          <i class="fa-regular fa-comment fs-3"></i>
+          <i class="fa-regular fa-comment fs-3" style="color: #000000;"></i>
         <% end %>
       <% end %>
     </div>
     <div>
-      <%= link_to "/marketplace", class: "flex__item" do%>
-          <div>
-            <i class="fa-solid fa-bag-shopping fs-3"></i>
-          </div>
-      <%end%>
-    </div>
-    <div class="dropup">
-      <a class="dropdown-toggle flex__item" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa-regular fa-user"></i>
-      </a>
-
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to 'Chat', user_chatrooms_path(current_user) %>
-          </li>
-          <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+        <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+        <%= f.input :from_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
+        <%= button_tag type: 'submit', class: "flex__item border-0" do %>
+        <i class="fa-solid fa-basket-shopping" style="color: #000000;"></i>
+    <% end %>
+    <% end %>
     </div>
   </div>
 </div>

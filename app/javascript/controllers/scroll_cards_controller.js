@@ -15,29 +15,40 @@ export default class extends Controller {
     });
     this.heightValue = `${this.lastCard.offsetTop + this.lastCard.offsetHeight}px`
     this.innerContainerTarget.style.height = this.heightValue
-    }
+  }
 
   push_down(event) {
-    const cardIndex = event.target.parentElement.parentElement.dataset.scrollCardsValue;
-    const isPushedDown = event.target.classList.contains('pushed-down');
+    if (event.target.parentElement.parentElement.classList.contains('pushed-down')) {
+      this.fold_card()
+    } else {
+      this.fold_card()
+      this.open_card(event)
+    }
+  }
 
+  open_card(event) {
+    const cardIndex = event.target.parentElement.parentElement.dataset.scrollCardsValue;
     this.cardTargets.forEach(card => {
       const otherCardIndex = card.dataset.scrollCardsValue;
-
-      if (cardIndex < otherCardIndex && !isPushedDown) {
+      if (cardIndex < otherCardIndex) {
         const position = (Number(otherCardIndex) * 250) - 250;
         card.style.bottom = `${position}px`;
-        card.style.transition = "all 0.5s";
         event.target.parentElement.parentElement.classList.add('pushed-down');
         this.innerContainerTarget.style.height = `${this.lastCard.offsetTop + this.lastCard.offsetHeight + 260}px`
-      } else if (cardIndex < otherCardIndex && isPushedDown) {
-        const position = Number(otherCardIndex) * 250;
-        card.style.bottom = `${position}px`;
-        event.target.parentElement.parentElement.classList.remove('pushed-down');
-        this.innerContainerTarget.style.height = this.heightValue
       }
-    });
+    })
+  }
 
-    event.target.classList.toggle('pushed-down');
+  fold_card() {
+    this.cardTargets.forEach(card => {
+      const otherCardIndex = card.dataset.scrollCardsValue;
+      const position = Number(otherCardIndex) * 250;
+      card.style.bottom = `${position}px`;
+      console.log
+      if (card.classList.contains('pushed-down')) {
+        card.classList.remove('pushed-down')
+      }
+      this.innerContainerTarget.style.height = this.heightValue
+    })
   }
 }
