@@ -5,15 +5,20 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
-    post_message
-    if @chatroom.on_off_gpt
-      # while chatgpt is on return chatGPT_answer(@chatroom)
-      if @chatroom.from_marketplace || @chatroom.from_card_marketplace
-        chatGPT_answer_marketplace(@chatroom)
+    response = nil
 
+    if @chatroom.on_off_gpt
+      if @chatroom.from_marketplace || @chatroom.from_card_marketplace
+        response = chatGPT_answer_marketplace(@chatroom)
       else
         chatGPT_answer(@chatroom)
       end
+    end
+
+    if response&.dig(:array_content).present?
+      render partial: "messages/marketplace_message", locals: { response: response }
+    else
+      post_message
     end
   end
 
@@ -56,12 +61,19 @@ class MessagesController < ApplicationController
   end
 
   def chatGPT_answer_marketplace(chatroom)
+    response = chatGPT_answer_content_marketplace
+
     @message = Message.new(
       chatroom: chatroom,
       user: User.find_by(email: "gpt@gmail.com"),
-      content: chatGPT_answer_content_marketplace.dig("choices", 0, "message", "content")
+      content: response[:text_before_array]
     )
     post_message
+
+    {
+      text_before_array: response[:text_before_array],
+      array_content: response[:array_content]
+    }
   end
 
   def list_product
@@ -87,5 +99,13 @@ class MessagesController < ApplicationController
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes propose three items to sell to the user. The iteams must come from this catalog :#{catalog}. You will adapt your answer and your answer of the product fromthe last messages of the conversation, that can find here : #{content}. Each time you will respond according to this content. You will explain why the 3 items you suggested are meaningful to the request the user just asked. Everytime you answer, you will take care of changing at least 2 products to not suggest the sames in your responses. You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested, do not announce the array, just print the [] with the numbers inside. Respond in #{words} words maximum accordingly"}]
     })
+    response_content = response.dig("choices", 0, "message", "content")
+    array_start_index = response_content.index("[")
+    array_start_index ||= response_content.length
+
+    text_before_array = response_content[0...array_start_index].strip
+    array_content = response_content[array_start_index..-1] if array_start_index < response_content.length
+
+    { text_before_array: text_before_array, array_content: array_content }
   end
 end
