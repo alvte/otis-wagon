@@ -1,5 +1,10 @@
-// Specific CSS for your home-page
-.button-container {
+.bg-container {
+  display: block; // if it is not a block element
+  // position: relative;
+  overflow: hidden;
+}
+
+.home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,59 +13,112 @@
   max-width: 375px;
   width: 100%;
   margin: auto;
-  background-color: #F95979;
+  z-index: 10;
+  position: relative;
 }
+
+
 .button {
-  display: block;
-  width: 75%;
-  padding: 16px;
-  margin-bottom: 100px;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid;
-  border-color: transparent;
-  border-radius: 8px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
+    display: block;
+    width: 75%;
+    padding: 16px;
+    margin-bottom: 100px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid;
+    border-color: transparent;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
 
-.button:hover {
-  transform: scale(1.10);
-  transition: 0.3s;
-}
 
-.button-middle-purple {
-  background-color: #AE0072;
-  border-color: #AE0072;
-  width: 281.34px
-}
+  .button-middle-purple {
+    background-color: transparent;
+    // border-color: #AE0072;
+    width: 281.34px
+  }
 
-.button-dark-pink {
-  background-color: #D62A5E;
-  border-color: #D62A5E;
-}
+  .card-home {
 
-.button-light-purple {
-  background-color: #C90084;
-  border-color: #C90084;
-}
+  }
 
-.button-middle-purple:hover {
-  background-color: #fff;
-  color: #AE0072;
-  border-color: #AE0072;
-}
 
-.button-dark-pink:hover {
-  background-color: #fff;
-  color: #D62A5E;
-  border-color: #D62A5E;
-}
 
-.button-light-purple:hover {
-  background-color: #fff;
-  color: #C90084;
-  border-color: #C90084;
-}
+
+// body {
+//   	background: linear-gradient(-45deg, $red, white, $yellow,  white, $orange, $white, $green, white, $brown, $violet, $blue);
+//   	animation: gradient 15s ease infinite;
+//   	height: 100vh;
+//   }
+
+
+// @keyframes gradient {
+// 	0% {
+// 		background-position: 0% 50%;
+// 	}
+// 	50% {
+// 		background-position: 100% 50%;
+// 	}
+// 	100% {
+// 		background-position: 0% 50%;
+// 	}
+// }
+
+
+// .button {
+//   display: block;
+//   width: 75%;
+//   padding: 16px;
+//   margin-bottom: 100px;
+//   text-align: center;
+//   text-decoration: none;
+//   color: #fff;
+//   font-weight: bold;
+//   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+//   border: 2px solid;
+//   border-color: transparent;
+//   border-radius: 8px;
+//   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+// }
+
+// .button:hover {
+//   transform: scale(1.10);
+//   transition: 0.3s;
+// }
+
+// .button-middle-purple {
+//   background-color: #AE0072;
+//   border-color: #AE0072;
+//   width: 281.34px
+// }
+
+// .button-dark-pink {
+//   background-color: #D62A5E;
+//   border-color: #D62A5E;
+// }
+
+// .button-light-purple {
+//   background-color: #C90084;
+//   border-color: #C90084;
+// }
+
+// .button-middle-purple:hover {
+//   background-color: #fff;
+//   color: #AE0072;
+//   border-color: #AE0072;
+// }
+
+// .button-dark-pink:hover {
+//   background-color: #fff;
+//   color: #D62A5E;
+//   border-color: #D62A5E;
+// }
+
+// .button-light-purple:hover {
+//   background-color: #fff;
+//   color: #C90084;
+//   border-color: #C90084;
+// }
