@@ -43,10 +43,24 @@ class GetProfessionalAnswerFromOpenai
     chat_with_gpt("You're a vendor of sex products for health purposes and mention it. Say only hello to #{@user.nickname}")
   end
 
+  def list_product
+    products = Product.all
+    products_json = products.map do |product|
+      {
+        name: product.name,
+        price: product.price,
+        description: product.description
+      }
+    end
+
+    return ({ :products => products_json }.to_json)
+  end
+
   def messages_from_card_from_marketplace
+    catalog = list_product
     words = rand(50..75)
     chat_with_gpt("You're a vendor of sex products for health purposes and mention it. Say only hello to #{@user.nickname}.
-      Sell me 3 items related to #{topic}, in #{words} words maximum accordingly")
+      Sell me 3 items related to #{topic} that are in this #{catalog}, in #{words} words maximum accordingly")
   end
 
   def chat_with_gpt(content)

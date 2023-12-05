@@ -62,15 +62,27 @@ class MessagesController < ApplicationController
     post_message
   end
 
+  def list_product
+    products = Product.all
+    products_json = products.map do |product|
+      {
+        name: product.name,
+        price: product.price,
+        description: product.description
+      }
+    end
 
-  #Product.all.map
+    return ({ :products => products_json }.to_json)
+  end
 
-   def chatGPT_answer_content_marketplace
-     client = OpenAI::Client.new
+  def chatGPT_answer_content_marketplace
+    catalog = list_product()
+    words = rand(25..50)
+    client = OpenAI::Client.new
     content = @chatroom.messages.last(10).map(&:content)
-     response = client.chat(parameters: {
-       model: "gpt-3.5-turbo",
-       messages: [{ role: "user", content: "You're a vendor professional proposing three items to sell to the user "}]
-     })
-   end
+    response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes proposing three items to sell to the user. You have this #{catalog} in stock. Based on the description. You will return a json with the product name and price that are in the #{catalog}. Respond in #{words} words maximum accordingly"}]
+    })
+  end
 end
