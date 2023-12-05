@@ -13,7 +13,11 @@
     </div>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
+        <% if message.content.match?(/^\[/) %>
+          <%= render "messages/marketplace_message", message: message %>
+        <% else %>
+          <%= render "messages/message", message: message %>
+        <% end %>
       <% end %>
     </div>
 
