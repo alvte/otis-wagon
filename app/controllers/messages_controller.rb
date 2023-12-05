@@ -80,12 +80,12 @@ class MessagesController < ApplicationController
 
   def chatGPT_answer_content_marketplace
     catalog = list_product()
-    words = rand(50..100)
+    words = rand(75..100)
     client = OpenAI::Client.new
     content = @chatroom.messages.last(10).map(&:content)
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes propose three items to sell to the user. The iteams must come from this catalog :#{catalog}. You will adapt your answer and your answer of the product fromthe last messages of the conversation, that can find here : #{content}. Each time you will respond according to this content. You will explain why the 3 items you suggested are meaningful to the request the user just asked. Everytime you answer, you will take care of changing at least 2 products to not suggest the sames in your responses. You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested, do not announce the array, just print the [] with the numbers inside. Respond in #{words} words maximum accordingly"}]
+      messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes propose three items to sell to the user. The items must come from this catalog :#{catalog}. You will adapt your answer and your suggestions of products from the last messages of the conversation, that can find here : #{content}. Each time you will respond according to this conversation. You will explain why the 3 items you suggested are meaningful to the request the user just asked. Everytime you answer, you will take care of changing at least 2 products to not suggest the sames in your responses. You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested. Do not talk about the array or announce that you created it, just print the [] with the numbers inside and stop there. Those ids must be contains in this array only and should not appear anywhere else in your response. It is really important that the array, the ids or any mention of it's creation must remains in this dedicated space. NEVER mention the word id anywhere. Respond in #{words} words maximum accordingly"}]
     })
   end
 end
