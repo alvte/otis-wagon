@@ -16,7 +16,6 @@
   margin: auto;
   border-radius: 15px;
   width: 95%;
-  margin-top: 10px;
 }
 
 .search-form-control .form-control:focus {
@@ -28,10 +27,11 @@
 
 .my-icon-to-log {
   display: flex;
-  flex-direction: row-reverse;
-  padding-right: 7%;
-  padding-top: 2%;
+  flex-direction: row;
+  margin-inline: 5%;
   position: relative;
+  justify-content: space-between;
+  padding-top: 5px;
 }
 
 .my-icon-to-log button {
@@ -39,7 +39,7 @@
   border: 1px solid black;
   width: 10%;
   font-size: larger;
-  padding-right: 12px;
+  padding-left: 11px;
   padding-top: 3px;
   height: 38px;
 }
