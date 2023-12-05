@@ -15,7 +15,7 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
 
-  <body>
+  <body <% if action_name == "index" && controller_name == "cards" %>style="background: radial-gradient(95% 85% at 45% 15%, #FFAFC8 0%, #FFF 100%);"<% end %>>
     <%# <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= render "shared/navbar_mobile" %>
