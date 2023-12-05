@@ -2,7 +2,8 @@
   flex-direction: column;
   display: flex;
   align-items: center;
-  margin-top: 130px;
+  margin-top: 90px;
+  background: radial-gradient(95% 85% at 45% 15%, $pink 0%, #FFF 100%);
 }
 
 .inner-container {
@@ -91,10 +92,6 @@ background-color: $orange;
 }
 
 
-
-
-
-
 .card-title {
   color: #000;
   font-feature-settings: 'clig' off, 'liga' off;
@@ -109,6 +106,14 @@ background-color: $orange;
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 6px;
+}
+
+.card-title > .a{
+  text-decoration: none;
+}
+
+.decoration-none {
+  text-decoration: none;
 }
 
 .card-rectangle {
