@@ -78,8 +78,7 @@ cat_disease = Category.create!(
 card_anal_sex = Card.new(
   title: "Anal Sex",
   summary: "Exploring Intimacy Beyond Boundaries",
-  content: "!
-  Embark on an intimate journey beyond traditional boundaries with anal exploration. This often-taboo realm invites you to discover uncharted territories of pleasure and connection. Despite common misconceptions, anal play can be a delightful and intimate experience when approached with care, open communication, and, naturally, a generous application of high-quality lubricant.
+  content: "Embark on an intimate journey beyond traditional boundaries with anal exploration. This often-taboo realm invites you to discover uncharted territories of pleasure and connection. Despite common misconceptions, anal play can be a delightful and intimate experience when approached with care, open communication, and, naturally, a generous application of high-quality lubricant.
 
   Now, let's delve into the details. The anus is rich in nerve endings, and when stimulated, it can lead to powerful sensations and orgasmic bliss. However, (pun intended) communication is paramount. Discuss desires, establish boundaries, and proceed at a comfortable pace for both partners.
 
@@ -89,7 +88,7 @@ card_anal_sex = Card.new(
 
 card_anal_sex.categories = [cat_sexual_relations]
 
-anal_sex_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701699892/anal.png"]
+anal_sex_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768905/penetration_fu7rel.png"]
 anal_sex_urls.each do |url|
   file = URI.open(url)
   card_anal_sex.photos.attach(io: file, filename: "anal_sex.png", content_type: 'image/png')
@@ -110,7 +109,7 @@ card_blowjob = Card.new(
 
 card_blowjob.categories = [cat_sexual_relations]
 
-blowjob_urls = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+blowjob_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768717/blowjob_o9andp.png"]
 blowjob_urls.each do |url|
   file = URI.open(url)
   card_blowjob.photos.attach(io: file, filename: "blowjob.png", content_type: 'image/jpg')
@@ -131,7 +130,7 @@ card_masturbation = Card.new(
 
 card_masturbation.categories = [cat_self_pleasure]
 
-masturbation_urls = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+masturbation_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768904/masturbation_ktafx1.png"]
 masturbation_urls.each do |url|
   file = URI.open(url)
   card_masturbation.photos.attach(io: file, filename: "masturbation.png", content_type: 'image/jpg')
@@ -152,7 +151,7 @@ Now, for the smart yet playful analogy: The clitoris is the maestro of the orche
 
 card_clitoris.categories = [cat_couple_life]
 
-clitoris_urls = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+clitoris_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768719/clitoris_evsh7x.png"]
 clitoris_urls.each do |url|
   file = URI.open(url)
   card_clitoris.photos.attach(io: file, filename: "clitoris.png", content_type: 'image/jpg')
@@ -174,7 +173,7 @@ Now, for a smart yet empathetic perspective: Endometriosis is like a skilled che
 
 card_endometriosis.categories = [cat_disease]
 
-endometriosis_urls = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+endometriosis_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768906/vaginisme_zhqcf9.png"]
 endometriosis_urls.each do |url|
   file = URI.open(url)
   card_endometriosis.photos.attach(io: file, filename: "endometriosis.png", content_type: 'image/jpg')
@@ -195,7 +194,7 @@ Now, for the smart yet liberating insight: Being part of a free couple is like d
 
 card_free_couple.categories = [cat_couple_life]
 
-free_couple_urls = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+free_couple_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768728/free_couple_lyf6au.png"]
 free_couple_urls.each do |url|
   file = URI.open(url)
   card_free_couple.photos.attach(io: file, filename: "free_couple.png", content_type: 'image/jpg')
@@ -216,7 +215,7 @@ Now, for the smart yet hopeful analogy: Overcoming vaginismus is like solving a 
 
 card_vaginismus.categories = [cat_disease]
 
-vaginismus_urls = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+vaginismus_urls = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768906/vaginisme_zhqcf9.png"]
 vaginismus_urls.each do |url|
   file = URI.open(url)
   card_vaginismus.photos.attach(io: file, filename: "vaginismus.png", content_type: 'image/jpg')
@@ -233,7 +232,7 @@ jouissance_club_book = Product.new(
 
 jouissance_club_book.categories = [cat_sexual_relations]
 
-jouissance_club_url = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+jouissance_club_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768921/jouissance_club_n5nlen.jpg"]
 jouissance_club_url.each do |url|
   file = URI.open(url)
   jouissance_club_book.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
@@ -268,7 +267,7 @@ hot_drink_boy = Product.new(
 
 hot_drink_boy.categories = [cat_self_pleasure]
 
-hot_drink_url = ["https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700833086/dreams_r_us/z5gdk1jev6cs7ggfadfz.jpg"]
+hot_drink_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768921/rabbit-triple-stimulation-oki_huezet.jpg"]
 hot_drink_url.each do |url|
   file = URI.open(url)
   hot_drink_boy.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')

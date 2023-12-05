@@ -74,7 +74,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_153258) do
     t.bigint "user_id", null: false
     t.bigint "professional_id", null: false
     t.boolean "on_off_gpt", default: true
-    t.boolean "initial_message_created"
     t.string "from_card"
     t.string "from_marketplace"
     t.string "from_card_marketplace"
