@@ -3,16 +3,13 @@
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
     <h1 class= "title mb-5">Chat with Otis!</h1>
-    <div class="mb-3 mx-auto">
-      <%= link_to "switch to a pro", deactivate_chat_GPT_chatroom_path(@chatroom), data: {turbo_method: :patch}, remote: true, class: "btn btn-rounded text-white bg-success" %>
-    </div>
     <div class="form-check form-switch"
       data-controller="switch-to-a-pro">
       <input class="form-check-input" type="checkbox"
        data-switch-to-a-pro-target="toggle"
        id="<%= @chatroom.id %>"
        data-action="click->switch-to-a-pro#switch">
-      <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+      <label class="form-check-label" id="toggletext">Talk to a pro</label>
     </div>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>

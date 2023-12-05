@@ -22,5 +22,6 @@ export default class extends Controller {
       }
     });
     this.toggleTarget.checked = true;
+    document.getElementById("toggletext").innerText = "You are talking to a pro";
   }
 }
