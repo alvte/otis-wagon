@@ -273,3 +273,57 @@ hot_drink_url.each do |url|
   hot_drink_boy.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
   hot_drink_boy.save
 end
+
+whisper_glide = Product.new(
+  name: "Whisper Glide",
+  price: 9,
+  description: "Envisioned by an eccentric inventor who believed in the harmony of sensation and discretion, the WhisperGlide emerged as a delicate yet powerful aid for enhancing oral pleasure. This exquisite device boasted a soft, feather-like texture coupled with a gentle yet whisper-quiet vibration. Its ergonomic design, resembling a slender wand adorned with shimmering accents, allowed for effortless gliding and teasing motions. The WhisperGlide promised an enchanting symphony of sensations, evoking tantalizing shivers and delightful sighs with every caress."
+)
+
+succulent_swirl = Product.new(
+  name: "Succulent Swirl",
+  price: 22,
+  description: "Crafted by an artisan inspired by the graceful dance of nature, the SucculentSwirl was a marvel of ingenuity. This marvelously intricate toy resembled a blooming flower, with soft, silicone petals delicately curved to mimic the tender touch of lips and tongue. Its innovative technology allowed for a mesmerizing, swirling motion, akin to an entrancing dance, designed to captivate and enthrall. The SucculentSwirl promised an enchanting experience, offering a symphony of sensations that ranged from delicate teasing to intense rapture, all controlled by the user's whim.",
+)
+
+bliss_bloom = Product.new(
+  name: "Bliss Bloom",
+  price: 25,
+  description: "Born from the dreams of a visionary designer who believed in the fusion of art and pleasure, the BlissBloom emerged as a masterpiece of elegance and functionality. This wondrous creation resembled a blossoming flower, its petals composed of the softest, silkiest materials, designed to mimic the tender caress of loving lips. The BlissBloom was equipped with adjustable settings, allowing users to customize their experience—whether seeking a gentle, teasing embrace or an exhilarating surge of ecstasy. Its sophisticated design and intuitive controls promised an exquisite journey through the realms of passion and intimacy.
+  Each of these enchanted creations was imbued with the intention of honoring and enhancing the timeless art of pleasure, inviting individuals into a realm of sensual exploration and boundless delight. Their names whispered promises of indulgence, their forms evoked desire, and their functions embraced the art of elevation in the realm of oral pleasure."
+)
+
+pleasure_pulse = Product.new(
+  name: "Pleasure Pulse",
+  price: 17,
+  description: "Conceived by a visionary inventor driven by the pursuit of heightened pleasure, the PleasurePulse emerged as a testament to innovation in self-indulgence. This sleek, ergonomic device boasted a harmonious blend of gentle pulsations and customizable rhythms. Its design, reminiscent of a sculpted gemstone with smooth contours, held within it a mesmerizing array of sensations. The PleasurePulse promised a symphony of stimulations, from tender caresses to exhilarating pulses, all catered to the desires of its user."
+)
+
+sensation_sphere = Product.new(
+  name: "Sensatio Sphere",
+  price: 15,
+  description:"Born from the imagination of an artist who believed in the union of aesthetics and sensuality, the SensatioSphere was a work of artistry. This ingenious creation resembled a polished sphere, its surface adorned with intricately designed patterns that teased the fingertips. Beneath its elegant facade lay a multitude of textures, each crafted to provide a unique sensation—gentle ripples, teasing ridges, and velvety contours. The SensatioSphere invited exploration, promising a journey of discovery and pleasure unlike any other."
+)
+
+eclipse_elation = Product.new(
+  name: "Eclipse Elation",
+  price: 8,
+  description: "Conceived by a maverick engineer fascinated by celestial wonders, the EclipseElation was a masterpiece of technological prowess and pleasure. Resembling a cosmic orb with an otherworldly glow, this device boasted a sophisticated combination of vibration patterns and intensity levels. Its allure lay in the ability to simulate the ebb and flow of cosmic energies, offering a mesmerizing crescendo of sensations that ranged from subtle vibrations to pulsating waves. The EclipseElation promised an interstellar odyssey of self-discovery and blissful satisfaction."
+)
+glide_gazer = Product.new(
+  name: "Glide Gazer",
+  price: 10,
+  description: "Conceived by an inventive mind dedicated to the pursuit of comfort and pleasure, the GlideGazer emerged as a testament to ergonomic design and indulgence. This sleek, curved device resembled a celestial arc, its surface adorned with a velvety-smooth texture. Crafted with premium silicone, it boasted a dual functionality—serving as both a gentle massager and a meticulously designed aid for enhanced anal intimacy. The GlideGazer promised effortless insertion and delightful sensations, offering a harmonious blend of comfort and stimulation."
+)
+
+pleasure_plume = Product.new(
+  name: "Pleasure Plume",
+  price: 12,
+  description: "Inspired by the elegance of nature's delicate balance, the PleasurePlume was a marvel of versatility and sophistication. This uniquely designed toy resembled a feather, with a pliable yet resilient structure crafted for exquisite pleasure. Its tapered form and feather-like texture allowed for gradual exploration and heightened sensations. The PleasurePlume, with its gentle curves and gradual widening, promised a gradual journey into ecstasy, catering to the desires of explorative souls seeking comfort and fulfillment."
+)
+
+eclipse_embrace = Product.new(
+  name: "Eclipse Embrace",
+  price: 15,
+  description: "Conceived by an innovative designer fascinated by celestial phenomena, the EclipseEmbrace stood as a testament to the fusion of technology and indulgence. Resembling a cosmic ring with a subtle, shimmering glow, this device was designed for both aesthetics and pleasure. Equipped with adjustable settings and a sleek, tapered form, the EclipseEmbrace offered a range of experiences—gentle vibrations to entrancing pulsations—ushering users into an exquisite realm of anal exploration. Its seamless design promised comfort, while its stimulating functions invited a celestial dance of intimacy and satisfaction."
+)
