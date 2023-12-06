@@ -32,16 +32,20 @@
 }
 
 .cards-pick-newhome {
-display: inline-flex;
-flex-direction: row;
-height: 252px;
-padding: 26px 0px 26px 35px;
-justify-content: flex-end;
+display: flex;
+/* flex-direction: row; */
+/* height: 252px; */
+/* padding: 26px 0px 26px 35px; */
+/* justify-content: flex-end; */
 align-items: flex-start;
-gap: 65px;
+gap: 15px;
 flex-shrink: 0;
-overflow-y: scroll;
+overflow: scroll;
+width: 100%;
+flex-wrap: nowrap;
 }
+
+
 
 .button {
     display: block;
