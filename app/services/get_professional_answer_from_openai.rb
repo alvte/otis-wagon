@@ -63,7 +63,7 @@ class GetProfessionalAnswerFromOpenai
     catalog = list_product
     words = rand(75..100)
     chat_with_gpt("You're a vendor of sex products for health purposes and mention it. Say only hello to #{@user.nickname}.
-      Sell me 3 items related to #{topic} that are in this #{catalog}. You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested. Do not talk about the array or announce that you created it, just print the [] with the numbers inside and stop there. Those ideas must be contains in this array only and should not appear anywhere else in your response. It is really important that the array, the ids or any mention of it's creation must remains in this dedicated space. NEVER mention the word id anywhere. Respond in #{words} words maximum accordingly")
+      Sell me 3 items related to #{topic} that are in this #{catalog}.You will present the 3 items in a list format. After You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested. Do not talk about the array or announce that you created it, just print the [] with the numbers inside and stop there. Those ideas must be contains in this array only and should not appear anywhere else in your response. It is really important that the array, the ids or any mention of it's creation must remains in this dedicated space. NEVER mention the word id anywhere. Respond in #{words} words maximum accordingly")
   end
 
   def chat_with_gpt(content)
@@ -80,7 +80,14 @@ class GetProfessionalAnswerFromOpenai
     text_before_array = response_content[0...array_start_index].strip
     array_content = response_content[array_start_index..-1] if array_start_index < response_content.length
 
+    array_content = extract_array_content(array_content) if array_content
+
     { text_before_array: text_before_array, array_content: array_content }
+  end
+
+  def extract_array_content(str)
+    match = str.match(/\[(.*)\]/)
+    match ? "[#{match[1]}]" : ""
   end
 
   def topic
