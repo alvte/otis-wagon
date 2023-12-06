@@ -22,7 +22,7 @@ export default class extends Controller {
       }
     });
     this.toggleTarget.checked = false;
-    document.getElementById("toggletext").innerText = "You are chating with a pro";
+    document.getElementById("toggletext").innerText = "You are chatting with a pro";
     document.querySelector(".interlocutor-indicator").innerText = "You are talking with a professional 👩‍⚕️"
     document.querySelector(".chatroom").style.background = "radial-gradient(45% 35% at 35% 35%, #FFAFC8 0%, #FFF 100%)";
   }
