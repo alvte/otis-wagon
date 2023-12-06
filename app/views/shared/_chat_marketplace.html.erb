@@ -2,8 +2,8 @@
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
-    <h1 class= "title mb-5">Buy with Otis!</h1>
-    <div class="messages" data-chatroom-subscription-target="messages">
+    <h1 class= "title mb-4">Buy with Otis!</h1>
+    <div class="messages pt-3" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
         <% if message.content.match?(/^\[/) %>
           <%= render "messages/marketplace_message", message: message %>

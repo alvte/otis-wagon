@@ -1,17 +1,17 @@
-<div class="container chatroom"
+<div class="container chatroom px-4"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
-    <h1 class= "title mb-5">Chat with Otis!</h1>
-    <div class="form-check form-switch"
+    <h1 class= "title mb-4">Chat with Otis!</h1>
+    <div class="d-flex flex-row-reverse form-check form-switch gap-2 justify-content-between mb-5 w-100 p-0"
       data-controller="switch-to-a-pro">
       <input class="form-check-input" type="checkbox"
        data-switch-to-a-pro-target="toggle"
        id="<%= @chatroom.id %>"
        data-action="click->switch-to-a-pro#switch">
-      <label class="form-check-label" id="toggletext">Talk to a pro</label>
+      <label class="form-check-label" id="toggletext">Chat with a pro</label>
     </div>
-    <div class="messages" data-chatroom-subscription-target="messages">
+    <div class="messages pt-3" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
         <% if message.content.match?(/^\[/) %>
           <%= render "messages/marketplace_message", message: message %>

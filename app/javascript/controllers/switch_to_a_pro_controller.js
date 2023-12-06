@@ -22,6 +22,6 @@ export default class extends Controller {
       }
     });
     this.toggleTarget.checked = true;
-    document.getElementById("toggletext").innerText = "You are talking to a pro";
+    document.getElementById("toggletext").innerText = "You are chating with a pro";
   }
 }
