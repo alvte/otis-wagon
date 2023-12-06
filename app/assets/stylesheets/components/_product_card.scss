@@ -1,3 +1,32 @@
 .product_card {
-  
+  border: 1px solid black;
+  box-shadow: 4px 4px 4px 0px #212529;
+  border-radius: 10px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 290px;
+  font-size: 11px;
+  align-items: center;
+  text-align: center;
+}
+
+.product_card img {
+  max-height: 200px;
+}
+
+.btn-modal-product {
+  display: flex;
+  width: 80px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 32px;
+  color: black;
+  font-family: Source Code Pro;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  margin-top: 3px;
 }

@@ -2,7 +2,9 @@
   <% product = Product.find(i) %>
     <div class="products_caroussel">
         <div class="product_card">
-          <p>Je suis <%= product.name %> - <%=product.description%> - <%= product.price %></p>
+          <%= product.name %>
+          <%= render partial: "shared/modal_product", locals: {product: product} %>
+          prout
         </div>
     </div>
 <% end %>
