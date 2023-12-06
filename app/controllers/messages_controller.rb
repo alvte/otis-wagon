@@ -7,18 +7,21 @@ class MessagesController < ApplicationController
     @message.user = current_user
     response = nil
 
+    post_message
     if @chatroom.on_off_gpt
       if @chatroom.from_marketplace || @chatroom.from_card_marketplace
         response = chatGPT_answer_marketplace(@chatroom)
+        if response&.dig(:array_content).present?
+          ChatroomChannel.broadcast_to(
+            @chatroom,
+            render_to_string(partial: "messages/marketplace_message_main", locals: { response: response })
+          )
+        else
+          post_message
+        end
       else
         chatGPT_answer(@chatroom)
       end
-    end
-
-    if response&.dig(:array_content).present?
-      render partial: "messages/marketplace_message", locals: { response: response }
-    else
-      post_message
     end
   end
 

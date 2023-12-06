@@ -1,0 +1,4 @@
+<% JSON.parse(response[:array_content]).each do |i| %>
+  <% product = Product.find(i) %>
+  <p>Je suis <%= product.name %> - <%= product.price %></p>
+<% end %>
