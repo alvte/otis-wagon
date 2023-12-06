@@ -15,7 +15,7 @@
        data-action="click->switch-to-a-pro#switch" checked>
       <label class="form-check-label" id="toggletext">Chat with a pro</label>
     </div>
-    <div class="messages pt-3" data-chatroom-subscription-target="messages">
+    <div class="messages pt-3" data-chatroom-subscription-target="messages" data-controller="loader">
       <% @chatroom.messages.each do |message| %>
         <% if message.content.match?(/^\[/) %>
           <%= render "messages/marketplace_message", message: message %>
