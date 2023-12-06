@@ -251,6 +251,13 @@ rabbit_triple_toy = Product.new(
 
 rabbit_triple_toy.categories = [cat_self_pleasure]
 
+rabbit_triple_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768921/rabbit-triple-stimulation-oki_huezet.jpg"]
+rabbit_triple_url.each do |url|
+  file = URI.open(url)
+  rabbit_triple_toy.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
+  rabbit_triple_toy.save
+end
+
 hot_drink_boy = Product.new(
   name: "HOT DRINK bois bandé pour homme",
   price: 17.90,
@@ -267,63 +274,92 @@ hot_drink_boy = Product.new(
 
 hot_drink_boy.categories = [cat_self_pleasure]
 
-hot_drink_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768921/rabbit-triple-stimulation-oki_huezet.jpg"]
+hot_drink_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701768920/hot-drink-homme-bois-bande-250-ml_rvsq0e.png"]
 hot_drink_url.each do |url|
   file = URI.open(url)
   hot_drink_boy.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
   hot_drink_boy.save
 end
 
-whisper_glide = Product.create(
-  name: "Whisper Glide",
-  price: 9,
-  description: "Envisioned by an eccentric inventor who believed in the harmony of sensation and discretion, the WhisperGlide emerged as a delicate yet powerful aid for enhancing oral pleasure. This exquisite device boasted a soft, feather-like texture coupled with a gentle yet whisper-quiet vibration. Its ergonomic design, resembling a slender wand adorned with shimmering accents, allowed for effortless gliding and teasing motions. The WhisperGlide promised an enchanting symphony of sensations, evoking tantalizing shivers and delightful sighs with every caress."
+plug_anal_rose = Product.new(
+  name: "Plug anale silicone roses Love to Love",
+  price: 24.90,
+  description: "Do you like roses? Fortunately, there is the Love to Love Silicone Rose Anal Plug!
+
+  This rose has no thorns, thankfully. On the contrary, it's a very soft plug made of hypoallergenic silicone that is extremely flexible and silky.
+
+  With its tapered shape and reasonable dimensions—8.5 cm insertable length and 3.4 cm diameter—there's no doubt it will fit perfectly in its vase to provide gentle anal sensations. And since it is 100% waterproof, you won't hesitate to water it generously. Its large rose allows for easy manipulation and removal."
 )
 
-succulent_swirl = Product.create(
-  name: "Succulent Swirl",
-  price: 22,
-  description: "Crafted by an artisan inspired by the graceful dance of nature, the SucculentSwirl was a marvel of ingenuity. This marvelously intricate toy resembled a blooming flower, with soft, silicone petals delicately curved to mimic the tender touch of lips and tongue. Its innovative technology allowed for a mesmerizing, swirling motion, akin to an entrancing dance, designed to captivate and enthrall. The SucculentSwirl promised an enchanting experience, offering a symphony of sensations that ranged from delicate teasing to intense rapture, all controlled by the user's whim.",
+plug_anal_rose.categories = [cat_sexual_relations]
+
+plug_anal_rose_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701881135/plug-anal-silicone-roses-love-to-love_oa4yrm.jpg"]
+plug_anal_rose_url.each do |url|
+  file = URI.open(url)
+  plug_anal_rose.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
+  plug_anal_rose.save
+end
+
+womanizer = Product.new(
+  name: "Womanizer Premium 2",
+  price: 189.00,
+  description: "For the little time we dedicate to ourselves, let well-being be total. The Womanizer Premium 2 is the top-of-the-line product from Womanizer, offering the best technologies to satisfy you. Like almost all our customers, you will appreciate its formidable efficiency.
+
+  From the first encounter, you will be drawn to its refined and elegant appearance, available in a myriad of colors that suit you. Are you tactile? Feel its costume made of very soft, flexible silicone, and of course, safe for the body. When you become more intimate, you will especially appreciate what has made its reputation: the famous Pleasure Air™ contactless stimulation invented by Womanizer. These gentle but powerful pulses of air provide a unique way to stimulate your clitoris without numbing it, allowing you to start over as many times as you like."
 )
 
-bliss_bloom = Product.create(
-  name: "Bliss Bloom",
-  price: 25,
-  description: "Born from the dreams of a visionary designer who believed in the fusion of art and pleasure, the BlissBloom emerged as a masterpiece of elegance and functionality. This wondrous creation resembled a blossoming flower, its petals composed of the softest, silkiest materials, designed to mimic the tender caress of loving lips. The BlissBloom was equipped with adjustable settings, allowing users to customize their experience—whether seeking a gentle, teasing embrace or an exhilarating surge of ecstasy. Its sophisticated design and intuitive controls promised an exquisite journey through the realms of passion and intimacy.
-  Each of these enchanted creations was imbued with the intention of honoring and enhancing the timeless art of pleasure, inviting individuals into a realm of sensual exploration and boundless delight. Their names whispered promises of indulgence, their forms evoked desire, and their functions embraced the art of elevation in the realm of oral pleasure."
+womanizer.categories = [cat_self_pleasure]
+
+womanizer_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701881271/womanizer-premium-2_eu9dnc.jpg"]
+womanizer_url.each do |url|
+  file = URI.open(url)
+  womanizer.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
+  womanizer.save
+end
+
+double_eidolon = Product.new(
+  name: "Double stimulator connected Eidolon",
+  price: 79.90,
+  description: "Why settle for just a panty vibrator when you can have a connected double stimulation? It's going to be hard to act like nothing's happening because the Magic Motion Eidolon will make you shiver. The round part is inserted into the vagina, making direct contact with the G-spot. The flat part is designed for the clitoral area – not too thick or too wide, staying discreet and comfortable."
 )
 
-pleasure_pulse = Product.create(
-  name: "Pleasure Pulse",
-  price: 17,
-  description: "Conceived by a visionary inventor driven by the pursuit of heightened pleasure, the PleasurePulse emerged as a testament to innovation in self-indulgence. This sleek, ergonomic device boasted a harmonious blend of gentle pulsations and customizable rhythms. Its design, reminiscent of a sculpted gemstone with smooth contours, held within it a mesmerizing array of sensations. The PleasurePulse promised a symphony of stimulations, from tender caresses to exhilarating pulses, all catered to the desires of its user."
+double_eidolon.categories = [cat_self_pleasure]
+
+double_eidolon_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701882325/double-stimulateur-connecte-eidolon_occfux.jpg"]
+double_eidolon_url.each do |url|
+  file = URI.open(url)
+  double_eidolon.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
+  double_eidolon.save
+end
+
+vibrating_ring = Product.new(
+  name: "Vibrating ring HIÖ",
+  price: 59.00,
+  description: "HIÖ from the Black Edition is a silky silicone vibrating ring designed for playful moments together. It is placed at the base of the erect penis, encircling it with gentle pressure, preventing blood backflow. The result? A stronger and longer-lasting erection, along with increased penile sensitivity. In short, it brings joy to the person wearing it!"
 )
 
-sensation_sphere = Product.create(
-  name: "Sensatio Sphere",
-  price: 15,
-  description:"Born from the imagination of an artist who believed in the union of aesthetics and sensuality, the SensatioSphere was a work of artistry. This ingenious creation resembled a polished sphere, its surface adorned with intricately designed patterns that teased the fingertips. Beneath its elegant facade lay a multitude of textures, each crafted to provide a unique sensation—gentle ripples, teasing ridges, and velvety contours. The SensatioSphere invited exploration, promising a journey of discovery and pleasure unlike any other."
+vibrating_ring.categories = [cat_self_pleasure]
+
+vibrating_ring_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701882325/double-stimulateur-connecte-eidolon_occfux.jpg"]
+vibrating_ring_url.each do |url|
+  file = URI.open(url)
+  vibrating_ring.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
+  vibrating_ring.save
+end
+
+goliate = Product.new(
+  name: "goliate vegan leather handcuffs and restraint links",
+  price: 99.90,
+  description: "Discover Goliate's handcuffs for hands and feet with restrictive links, all made from vegan leather! This little bondage kit will bring pleasure to both you and your partner. It includes handcuffs for the hands and feet, both equipped with 7 adjustable notches to accommodate various body shapes. To add excitement, there are also restrictive links! These links allow you to connect the handcuffs for hands and feet, adding a spicy element to your experiences ;)
+
+  The handcuffs and links are eco-friendly and made in France. They are crafted from burgundy-colored vegan leather. The stitching of the handcuffs and links follows an ancestral method, ensuring strong resistance and durability for these bondage items."
 )
 
-eclipse_elation = Product.create(
-  name: "Eclipse Elation",
-  price: 8,
-  description: "Conceived by a maverick engineer fascinated by celestial wonders, the EclipseElation was a masterpiece of technological prowess and pleasure. Resembling a cosmic orb with an otherworldly glow, this device boasted a sophisticated combination of vibration patterns and intensity levels. Its allure lay in the ability to simulate the ebb and flow of cosmic energies, offering a mesmerizing crescendo of sensations that ranged from subtle vibrations to pulsating waves. The EclipseElation promised an interstellar odyssey of self-discovery and blissful satisfaction."
-)
-glide_gazer = Product.create(
-  name: "Glide Gazer",
-  price: 10,
-  description: "Conceived by an inventive mind dedicated to the pursuit of comfort and pleasure, the GlideGazer emerged as a testament to ergonomic design and indulgence. This sleek, curved device resembled a celestial arc, its surface adorned with a velvety-smooth texture. Crafted with premium silicone, it boasted a dual functionality—serving as both a gentle massager and a meticulously designed aid for enhanced anal intimacy. The GlideGazer promised effortless insertion and delightful sensations, offering a harmonious blend of comfort and stimulation."
-)
+goliate.categories = [cat_couple_life]
 
-pleasure_plume = Product.create(
-  name: "Pleasure Plume",
-  price: 12,
-  description: "Inspired by the elegance of nature's delicate balance, the PleasurePlume was a marvel of versatility and sophistication. This uniquely designed toy resembled a feather, with a pliable yet resilient structure crafted for exquisite pleasure. Its tapered form and feather-like texture allowed for gradual exploration and heightened sensations. The PleasurePlume, with its gentle curves and gradual widening, promised a gradual journey into ecstasy, catering to the desires of explorative souls seeking comfort and fulfillment."
-)
-
-eclipse_embrace = Product.create(
-  name: "Eclipse Embrace",
-  price: 15,
-  description: "Conceived by an innovative designer fascinated by celestial phenomena, the EclipseEmbrace stood as a testament to the fusion of technology and indulgence. Resembling a cosmic ring with a subtle, shimmering glow, this device was designed for both aesthetics and pleasure. Equipped with adjustable settings and a sleek, tapered form, the EclipseEmbrace offered a range of experiences—gentle vibrations to entrancing pulsations—ushering users into an exquisite realm of anal exploration. Its seamless design promised comfort, while its stimulating functions invited a celestial dance of intimacy and satisfaction."
-)
+goliate_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701882325/double-stimulateur-connecte-eidolon_occfux.jpg"]
+goliate_url.each do |url|
+  file = URI.open(url)
+  goliate.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
+  goliate.save
+end
