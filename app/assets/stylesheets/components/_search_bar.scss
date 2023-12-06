@@ -16,7 +16,6 @@
   margin: auto;
   border-radius: 15px;
   width: 95%;
-  margin-top: 10px;
 }
 
 .search-form-control .form-control:focus {
@@ -28,20 +27,20 @@
 
 .my-icon-to-log {
   display: flex;
-  flex-direction: row-reverse;
-  padding-right: 7%;
-  padding-top: 2%;
+  flex-direction: row;
   position: relative;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .my-icon-to-log button {
   border-radius: 50px 50px 50px 50px;
   border: 1px solid black;
-  width: 10%;
+  width: 40px;
   font-size: larger;
-  padding-right: 12px;
-  padding-top: 3px;
-  height: 38px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
 }
 
 .dropdown-homemade li {
@@ -55,4 +54,13 @@
 
 .dropdown-homemade a:hover {
   color: blue;
+}
+
+#logo-inline {
+  background-image: url("oTIs.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 100px;
 }

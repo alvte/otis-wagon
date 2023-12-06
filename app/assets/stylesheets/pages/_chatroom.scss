@@ -1,7 +1,7 @@
 .chatroom {
   background: radial-gradient(45% 35% at 35% 35%, $light-blue 0%, #FFF 100%);
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -61,7 +61,6 @@
   .messages {
     height: 100%;
     overflow: scroll;
-    padding: 1rem;
   }
 
 

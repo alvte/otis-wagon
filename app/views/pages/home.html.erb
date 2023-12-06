@@ -5,7 +5,7 @@
   <% end %>
 
   <% if user_signed_in? %>
-    <%= link_to user_chatrooms_path(current_user), class: "button" do %>
+    <%= link_to chatrooms_path, data: {turbo_method: :post}, class: "button button-light-purple" do %>
       Chat with a professional
     <% end %>
   <% else %>
@@ -23,5 +23,3 @@
 </div>
   <div class="auroral-otis"></div>
 </div>
-
-

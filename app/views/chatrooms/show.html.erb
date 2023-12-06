@@ -1,40 +1,5 @@
-<div class="container <%=@chatroom.from_marketplace || @chatroom.from_card_marketplace ? "marketplace" : "chatroom"%>"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
->
-  <h1 class= "title mb-5">#<%= @chatroom.name %></h1>
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
-  </div>
-
-  <%= simple_form_for [@chatroom, @message],
-    html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message ##{@chatroom.name}",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-
-    <%# <%= f.submit 'SEND', class: "btn mb-3"%>
-    <%= button_tag type: 'submit', class: "btn mb-3 border-0" do%>
-    <i class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
-    <% end %>
-
-  <% end %>
-
-
-  <div class="mb-3 mx-auto">
-    <%= link_to "switch to a pro", deactivate_chat_GPT_chatroom_path(@chatroom), data: {turbo_method: :patch}, remote: true, class: "btn btn-rounded text-white bg-success" %>
-  </div>
-</div>
-
-
-
-
-<%# <%= f.submit '', class: "btn mb-3" do %>
-<%# <%= button_tag type: 'submit', class: "btn mb-3" do %>
-<%# <i class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
-    <% end %>
+<% if @chatroom.from_marketplace? || @chatroom.from_card_marketplace? %>
+  <%= render partial: "shared/chat_marketplace", locals: {chatroom: @chatroom} %>
+<% else %>
+  <%= render partial: "shared/chat_card", locals: {chatroom: @chatroom} %>
+<% end %>

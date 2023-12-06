@@ -9,20 +9,26 @@
   background: rgba(255, 255, 255, 0.10);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(12px);
-  }
+}
 
-  .navmobile .navmobile-brand img {
-    width: 40px;
-  }
+.navmobile .navmobile-brand img {
+  width: 40px;
+}
 
-  .navmobile .navmobile-collapse {
-    flex-grow: 0;
-  }
+.navmobile .navmobile-collapse {
+  flex-grow: 0;
+}
 
-  .dropup-menu-right {
-    right: 0;
-    left: auto;
-    text-align: end;
+.dropup-menu-right {
+  right: 0;
+  left: auto;
+  text-align: end;
+}
+
+.marketplace-icon {
+  border: none;
+  background: transparent;
+  padding-bottom: 20px;
 }
 
 .hidden-button {

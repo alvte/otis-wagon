@@ -1,9 +1,13 @@
+require 'json'
 class ChatroomsController < ApplicationController
   before_action :authenticate_user!
 
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    if params[:format]
+      @content = JSON.parse(params[:format])
+    end
   end
 
   def index
@@ -31,7 +35,24 @@ class ChatroomsController < ApplicationController
       )
 
     if @chatroom.save
-      GetProfessionalAnswerFromOpenai.new(@chatroom).call
+      response = GetProfessionalAnswerFromOpenai.new(@chatroom).call
+
+      if response
+        @message = Message.new(
+        chatroom: @chatroom,
+        user: User.find_by(email: "gpt@gmail.com"),
+        content: response
+        )
+
+        if @message.save
+          ChatroomChannel.broadcast_to(
+            @chatroom,
+            render_to_string(partial: "messages/marketplace_message", locals: { message: @message })
+          )
+        else
+          render "chatrooms/show"
+        end
+      end
       redirect_to user_chatroom_path(current_user, @chatroom), notice: "Chatroom created successfully."
     else
       render :new

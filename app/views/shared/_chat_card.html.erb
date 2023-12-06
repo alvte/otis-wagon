@@ -1,0 +1,39 @@
+<div class="container chatroom px-4"
+    data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+  >
+    <h1 class= "title mb-4">Chat with Otis!</h1>
+    <div class="d-flex flex-row-reverse form-check form-switch gap-2 justify-content-between mb-5 w-100 p-0"
+      data-controller="switch-to-a-pro">
+      <input class="form-check-input" type="checkbox"
+       data-switch-to-a-pro-target="toggle"
+       id="<%= @chatroom.id %>"
+       data-action="click->switch-to-a-pro#switch">
+      <label class="form-check-label" id="toggletext">Chat with a pro</label>
+    </div>
+    <div class="messages pt-3" data-chatroom-subscription-target="messages">
+      <% @chatroom.messages.each do |message| %>
+        <% if message.content.match?(/^\[/) %>
+          <%= render "messages/marketplace_message", message: message %>
+        <% else %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= simple_form_for [@chatroom, @message],
+      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex w-100" } do |f|
+    %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ##{@chatroom.name}",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+
+      <%# <%= f.submit 'SEND', class: "btn mb-3"%>
+      <%= button_tag type: 'submit', class: "btn mb-3 border-0" do%>
+      <i class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
+      <% end %>
+
+    <% end %>
+  </div>

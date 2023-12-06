@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
       # while chatgpt is on return chatGPT_answer(@chatroom)
       if @chatroom.from_marketplace || @chatroom.from_card_marketplace
         chatGPT_answer_marketplace(@chatroom)
+
       else
         chatGPT_answer(@chatroom)
       end
@@ -29,6 +30,7 @@ class MessagesController < ApplicationController
       render "chatrooms/show"
     end
   end
+
 
   def message_params
     params.require(:message).permit(:content)
@@ -66,6 +68,7 @@ class MessagesController < ApplicationController
     products = Product.all
     products_json = products.map do |product|
       {
+        id: product.id,
         name: product.name,
         price: product.price,
         description: product.description
@@ -77,12 +80,12 @@ class MessagesController < ApplicationController
 
   def chatGPT_answer_content_marketplace
     catalog = list_product()
-    words = rand(25..50)
+    words = rand(50..100)
     client = OpenAI::Client.new
     content = @chatroom.messages.last(10).map(&:content)
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes proposing three items to sell to the user. You have this #{catalog} in stock. Based on the description. You will return a json with the product name and price that are in the #{catalog}. Respond in #{words} words maximum accordingly"}]
+      messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes propose three items to sell to the user. The iteams must come from this catalog :#{catalog}. You will adapt your answer and your answer of the product fromthe last messages of the conversation, that can find here : #{content}. Each time you will respond according to this content. You will explain why the 3 items you suggested are meaningful to the request the user just asked. Everytime you answer, you will take care of changing at least 2 products to not suggest the sames in your responses. You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested, do not announce the array, just print the [] with the numbers inside. Respond in #{words} words maximum accordingly"}]
     })
   end
 end
