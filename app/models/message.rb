@@ -1,4 +1,4 @@
-require 'JSON'
+require 'json'
 
 class Message < ApplicationRecord
   belongs_to :chatroom
