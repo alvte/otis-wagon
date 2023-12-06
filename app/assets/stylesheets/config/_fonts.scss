@@ -15,3 +15,19 @@ $headers-font: "Source Code Pro", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// To use a font file (.woff) uncomment following lines
+@font-face {
+  font-family: "Typefesse";
+  // src: font-url('Typefesse_Pleine.eot');
+  src: font-url('assets/fonts/Typefesse_Pleine.woff') format('woff'),
+       font-url('assets/fonts/Typefesse_Pleine.woff2') format('woff2')
+}
+$my-font: "Typefesse";
+
+.fancy-font {
+  font-family: $my-font;
+}
+
+//////
+///

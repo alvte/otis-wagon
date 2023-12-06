@@ -30,6 +30,7 @@
   flex-direction: row;
   position: relative;
   justify-content: space-between;
+  align-items: center;
 }
 
 .my-icon-to-log button {
@@ -53,4 +54,13 @@
 
 .dropdown-homemade a:hover {
   color: blue;
+}
+
+#logo-inline {
+  background-image: url("oTIs.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 100px;
 }
