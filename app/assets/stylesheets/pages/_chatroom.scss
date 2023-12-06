@@ -16,6 +16,7 @@
   }
    .separator p {
     margin: 0;
+    font-size: 10px;
    }
 
   .separator-others {
@@ -91,5 +92,21 @@
     line-height: normal;
 
   }
+}
 
+
+.from-sexual-relations {
+  background: radial-gradient(40% 55% at 25% 35%, $red 0%, #FFF 100%);
+}
+
+.from-couple-life {
+  background: radial-gradient(70% 60% at 40% 30%, $blue 0%, #FFF 100%);
+}
+
+.from-disease {
+  background: radial-gradient(70% 50% at 35% 30%, $green 0%, #FFF 100%);
+}
+
+.from-self-pleasure {
+  background: radial-gradient(70% 50% at 55% 20%, $orange 0%, #FFF 100%);
 }

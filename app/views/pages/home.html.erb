@@ -1,6 +1,6 @@
-<%# <%= image_tag("logotropfrais.png", alt: "Logo tro frè", style: "width: 500px;") %>
-<div class="button-container">
-  <%= link_to "/cards", class: "button button-dark-pink" do %>
+<div class="bg-container">
+<div class="home-container">
+  <%= link_to "/cards", class: "button" do %>
     Cards
   <% end %>
 
@@ -9,7 +9,7 @@
       Chat with a professional
     <% end %>
   <% else %>
-    <%= link_to new_user_session_path, class: "button button-light-purple" do %>
+    <%= link_to new_user_session_path, class: "button" do %>
       Chat with a professional
     <% end %>
   <% end %>
@@ -20,4 +20,6 @@
       Marketplace
     <% end %>
   <% end %>
+</div>
+  <div class="auroral-otis"></div>
 </div>
