@@ -1,4 +1,4 @@
-require 'JSON'
+require 'json'
 class ChatroomsController < ApplicationController
   before_action :authenticate_user!
 
