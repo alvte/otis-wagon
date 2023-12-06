@@ -27,7 +27,6 @@ class GetProfessionalAnswerFromOpenai
       user: User.find_by(email: "gpt@gmail.com"),
       content: result[:text_before_array]
     )
-    p result
     result[:array_content]
   end
 
