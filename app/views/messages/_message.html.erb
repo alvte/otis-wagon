@@ -11,7 +11,7 @@
         </small>
         </div>
       </div>
-      <p><%= message.content %></p>
+      <p><%= simple_format(message.content) %></p>
   </div>
 <% else %>
   <div class="answer-message" id="message-<%= message.id %>">
@@ -26,6 +26,6 @@
         <p>&nbsp</p>
       </div>
     </div>
-    <p><%= message.content %></p>
+    <p><%= simple_format(message.content) %></p>
   </div>
 <% end %>
