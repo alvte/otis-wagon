@@ -1,7 +1,8 @@
 .bg-container {
-  display: block; // if it is not a block element
-  // position: relative;
+  // display: block; // if it is not a block element
+  position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .home-container {
@@ -17,6 +18,30 @@
   position: relative;
 }
 
+.newhome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  height: 100vh;
+  max-width: 375px;
+  width: 100%;
+  margin: auto;
+  z-index: 10;
+  position: relative;
+}
+
+.cards-pick-newhome {
+display: inline-flex;
+flex-direction: row;
+height: 252px;
+padding: 26px 0px 26px 35px;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 65px;
+flex-shrink: 0;
+overflow-y: scroll;
+}
 
 .button {
     display: block;

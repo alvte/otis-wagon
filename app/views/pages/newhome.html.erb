@@ -1,39 +1,88 @@
-<%# <%= image_tag("logotropfrais.png", alt: "Logo tro frè", style: "width: 500px;") %>
+<div class="bg-container">
+  <div class="newhome-container p-3">
+    <div class="d-flex flex-row">
+      <%= image_tag 'otis2.png', height: '40', width: '40' %>
+      <h2>Otis</h2>
+    </div>
+    <h3>Today's pick</h3>
+    <div class="cards-pick-newhome">
+      <div class="card-box w-200 <%= Card.last.categories.first.name.downcase.gsub(' ', '-') %>">
+        <div class="card-title" style="height: 65px;">
+          <%= Card.last.title %>
+          <%= link_to cards_path(query: Card.last.categories.first.name) , class: "decoration-none" do%>
+            <div class="card-category <%= Card.last.categories.first.name.downcase.gsub(' ', '-') %>">
+              <p class="m-0"><%= Card.last.categories.first.name %></p>
+            </div>
+          <%end%>
+        </div>
+        <div class="card-rectangle">&nbsp;</div>
+        <div class="card-description"><%= Card.last.summary %></div>
+          <%= render partial: "shared/modal_cards", locals: {card: Card.last} %>
+          <%#= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+            <%#= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
+            <%#= f.submit "Chat!" %>
+          <%# end %>
+      </div>
 
-<div class="home-container">
+      <div class="card-box w-200 <%= Card.first.categories.first.name.downcase.gsub(' ', '-') %>">
+        <div class="card-title" style="height: 65px;">
+          <%= Card.first.title %>
+          <%= link_to cards_path(query: Card.first.categories.first.name) , class: "decoration-none" do%>
+            <div class="card-category <%= Card.first.categories.first.name.downcase.gsub(' ', '-') %>">
+              <p class="m-0"><%= Card.first.categories.first.name %></p>
+            </div>
+          <%end%>
+        </div>
+        <div class="card-rectangle">&nbsp;</div>
+        <div class="card-description"><%= Card.first.summary %></div>
+          <%= render partial: "shared/modal_cards", locals: {card: Card.first} %>
+          <%#= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+            <%#= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
+            <%#= f.submit "Chat!" %>
+          <%# end %>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+    <h3>Chat with a professional</h3>
+    <% if user_signed_in? %>
+      <%= link_to user_chatrooms_path(current_user), class: "button" do %>
+      Chatroom
+      <% end %>
+    <% else %>
+        <%= link_to new_user_session_path, class: "button" do %>
+        Chatroom
+      <% end %>
+    <% end %>
+
+    <br>
+    <h3>Looking for a product</h3>
+    <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
+      <%= f.input :from_marketplace, label: false, input_html: { value: "..." } %>
+      <%= button_tag type: 'submit', class: "button button-middle-purple" do %>
+        Marketplace
+      <% end %>
+    <% end %>
+
+    <br>
+    <h3>Categories</h3>
+
+    <br>
+    <h3>Recent cards</h3>
+
+  </div>
+  <div class="auroral-otis"></div>
   <%= link_to "/cards", class: "button" do %>
-    Cards
+    Card
   <% end %>
+</div>
 
-  <% if user_signed_in? %>
-    <%= link_to user_chatrooms_path(current_user), class: "button" do %>
-      Chat with a professional
-    <% end %>
-  <% else %>
-    <%= link_to new_user_session_path, class: "button" do %>
-      Chat with a professional
-    <% end %>
-  <% end %>
 
   <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
-    <%= f.input :from_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
-    <%= button_tag type: 'submit', class: "button button-middle-purple" do %>
-      Marketplace
-    <% end %>
-  <% end %>
-</div>
-<div class="bg-container">
-  <div class="auroral-otis"></div>
-</div>
-
-
-
-Today's pick
-
-Need to talk
-
-Looking for ...
-
-Recent cards
-
-Categories
+        <%= f.input :from_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
+        <%= button_tag type: 'submit', class: "button button-middle-purple d-none" do %>
+          Marketplace
+        <% end %>
+      <% end %>

@@ -1,4 +1,4 @@
-<div class="container chatroom"
+<div class="container <%=@chatroom.from_marketplace || @chatroom.from_card_marketplace ? "marketplace" : "chatroom"%>"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
@@ -30,6 +30,8 @@
     <%= link_to "switch to a pro", deactivate_chat_GPT_chatroom_path(@chatroom), data: {turbo_method: :patch}, remote: true, class: "btn btn-rounded text-white bg-success" %>
   </div>
 </div>
+
+
 
 
 <%# <%= f.submit '', class: "btn mb-3" do %>
