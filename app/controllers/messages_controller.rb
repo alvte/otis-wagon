@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
         if response&.dig(:array_content).present?
           ChatroomChannel.broadcast_to(
             @chatroom,
-            render_to_string(partial: "messages/marketplace_message_main", locals: { response: response })
+            render_to_string(partial: "messages/marketplace_message_main", locals: { response: response[:array_content] })
           )
         else
           post_message
@@ -100,7 +100,7 @@ class MessagesController < ApplicationController
     content = @chatroom.messages.last(10).map(&:content)
     response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes propose three items to sell to the user. The iteams must come from this catalog :#{catalog}. You will adapt your answer and your answer of the product fromthe last messages of the conversation, that can find here : #{content}. Each time you will respond according to this content. You will explain why the 3 items you suggested are meaningful to the request the user just asked. Everytime you answer, you will take care of changing at least 2 products to not suggest the sames in your responses. You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested, do not announce the array, just print the [] with the numbers inside. Respond in #{words} words maximum accordingly"}]
+      messages: [{ role: "user", content: "You're a professional vendor of sex items for health purposes propose three items in a list format. The iteams must come from this catalog :#{catalog}. You will adapt your answer and your answer of the product fromthe last messages of the conversation, that can find here : #{content}. Each time you will respond according to this content. You will explain why the 3 items you suggested are meaningful to the request the user just asked. Everytime you answer, you will take care of changing at least 2 products to not suggest the sames in your responses. You will prompt a second paragraph scrictly with an array containing the product ids of the items you suggested, do not announce the array, just print the [] with the numbers inside. Respond in #{words} words maximum accordingly"}]
     })
     response_content = response.dig("choices", 0, "message", "content")
     array_start_index = response_content.index("[")
@@ -109,6 +109,14 @@ class MessagesController < ApplicationController
     text_before_array = response_content[0...array_start_index].strip
     array_content = response_content[array_start_index..-1] if array_start_index < response_content.length
 
+    array_content = extract_array_content(array_content)
+
     { text_before_array: text_before_array, array_content: array_content }
   end
+
+  def extract_array_content(str)
+    match = str.match(/\[(.*)\]/)
+    match ? "[#{match[1]}]" : ""
+  end
+
 end
