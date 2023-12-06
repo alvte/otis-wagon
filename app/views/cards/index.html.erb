@@ -21,13 +21,11 @@
           <div class="card-title" style="height: 65px;">
             <%= card.title %>
 
-
             <%= link_to cards_path(query: card.categories.first.name) , class: "decoration-none" do%>
               <div class="card-category <%= card.categories.first.name.downcase.gsub(' ', '-') %>">
                 <p class="m-0"><%= card.categories.first.name %></p>
               </div>
             <%end%>
-
 
           </div>
           <div class="card-rectangle">&nbsp;</div>
@@ -40,6 +38,6 @@
             <%# end %>
       </div>
       <% counter += 1 %>
-    <% end %>
+      <% end %>
   </div>
 </div>
