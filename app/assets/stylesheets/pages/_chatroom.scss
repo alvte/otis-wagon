@@ -92,6 +92,11 @@
     line-height: normal;
 
   }
+
+  .interlocutor-indicator {
+    font-weight: lighter;
+    text-align: center;
+  }
 }
 
 
@@ -109,9 +114,4 @@
 
 .from-self-pleasure {
   background: radial-gradient(70% 50% at 55% 20%, $orange 0%, #FFF 100%);
-  .interlocutor-indicator {
-    font-weight: lighter;
-    text-align: center;
-  }
-
 }
