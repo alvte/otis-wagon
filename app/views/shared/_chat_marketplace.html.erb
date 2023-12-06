@@ -1,9 +1,9 @@
-<div class="container chatroom"
+<div class="container chatroom px-4"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
-    <h1 class= "title mb-5">Buy with Otis!</h1>
-    <div class="messages" data-chatroom-subscription-target="messages">
+    <h1 class= "title mb-4">Buy with Otis!</h1>
+    <div class="messages pt-3" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
         <% if message.content.match?(/^\[/) %>
           <%= render "messages/marketplace_message", message: message %>
@@ -14,7 +14,7 @@
     </div>
 
     <%= simple_form_for [@chatroom, @message],
-      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex w-100" } do |f|
     %>
       <%= f.input :content,
         label: false,
