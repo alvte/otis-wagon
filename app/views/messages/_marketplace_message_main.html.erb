@@ -1,5 +1,5 @@
 <div class="products_caroussel p-2">
-<% JSON.parse(response[:array_content]).each do |i| %>
+<% JSON.parse(response).each do |i| %>
   <% product = Product.find(i) %>
         <div class="product_card">
           <%= cl_image_tag product.photos[0].key, crop: :fit %>
