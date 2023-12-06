@@ -45,10 +45,17 @@ class ChatroomsController < ApplicationController
         )
 
         if @message.save
-          ChatroomChannel.broadcast_to(
-            @chatroom,
-            render_to_string(partial: "messages/marketplace_message", locals: { message: @message })
-          )
+          if !@chatroom.from_card_marketplace
+            ChatroomChannel.broadcast_to(
+              @chatroom,
+              render_to_string(partial: "messages/marketplace_message", locals: { message: @message })
+            )
+          else
+            ChatroomChannel.broadcast_to(
+              @chatroom,
+              render_to_string(partial: "messages/marketplace_message_main", locals: { response: response })
+            )
+          end
         else
           render "chatrooms/show"
         end
