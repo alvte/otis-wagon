@@ -21,7 +21,9 @@ export default class extends Controller {
         "X-CSRF-Token": csrfToken // Include the CSRF token in the headers
       }
     });
-    this.toggleTarget.checked = true;
+    this.toggleTarget.checked = false;
     document.getElementById("toggletext").innerText = "You are chating with a pro";
+    document.querySelector(".interlocutor-indicator").innerText = "You are talking with a professional 👩‍⚕️"
+    document.querySelector(".chatroom").style.background = "radial-gradient(45% 35% at 35% 35%, #FFAFC8 0%, #FFF 100%)";
   }
 }
