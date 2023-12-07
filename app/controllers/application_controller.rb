@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Faraday::TooManyRequestsError, with: :redirect_to_429
   def redirect_to_429
-    redirect_to("/429.html")
+    redirect_to("/428.html")
   end
 
 end
