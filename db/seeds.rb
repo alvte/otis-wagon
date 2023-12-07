@@ -340,7 +340,7 @@ vibrating_ring = Product.new(
 
 vibrating_ring.categories = [cat_self_pleasure]
 
-vibrating_ring_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701882325/double-stimulateur-connecte-eidolon_occfux.jpg"]
+vibrating_ring_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701882350/anneau-vibrant-hio_yx07mo.jpg"]
 vibrating_ring_url.each do |url|
   file = URI.open(url)
   vibrating_ring.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
@@ -357,7 +357,7 @@ goliate = Product.new(
 
 goliate.categories = [cat_couple_life]
 
-goliate_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701882325/double-stimulateur-connecte-eidolon_occfux.jpg"]
+goliate_url = ["https://res.cloudinary.com/dwhqsnhr5/image/upload/v1701882350/menottes-et-liens-de-restrictions-cuir-vegan-goliate_zyldxd.jpg"]
 goliate_url.each do |url|
   file = URI.open(url)
   goliate.photos.attach(io: file, filename: "jouissance_club_book.png", content_type: 'image/jpg')
