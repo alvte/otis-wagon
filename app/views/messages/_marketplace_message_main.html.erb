@@ -1,8 +1,8 @@
+<div class="products_caroussel">
 <% JSON.parse(response).each do |i| %>
   <% product = Product.find(i) %>
-    <div class="products_caroussel">
-        <div class="product_card">
-          <p>Je suis <%= product.name %> - <%=product.description%> - <%= product.price %></p>
-        </div>
+    <div class="product_card">
+      <p>Je suis <%= product.name %> - <%=product.description%> - <%= product.price %></p>
     </div>
-<% end %>
+  <% end %>
+</div>

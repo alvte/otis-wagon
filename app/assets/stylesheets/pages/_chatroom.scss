@@ -80,6 +80,10 @@
       align-items: center;
       flex-shrink: 0;
     }
+
+    .form-control {
+      border-color: $light-blue;
+    }
   }
 
   .title {
@@ -96,6 +100,7 @@
   .interlocutor-indicator {
     font-weight: lighter;
     text-align: center;
+    font-size: 14px;
   }
 }
 
