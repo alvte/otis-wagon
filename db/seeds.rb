@@ -37,12 +37,12 @@ User.create!(
 User.create!(
   email: "pro@sex.com",
   password: "pro123",
-  nickname: "Baptiste",
+  nickname: "Jane",
   admin: false
 )
 
 Professional.create!(
-  name: "Baptiste",
+  name: "Jane",
   user_id: User.find_by(email: "pro@sex.com").id
 )
 
