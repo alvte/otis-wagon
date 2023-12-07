@@ -3,7 +3,7 @@
   <div class="requester-message" id="message-<%= message.id %>" style='text-align:right' data-author="<%= message.user.nickname.downcase %>" data-chatroom-subscription-target="message">
     <div class="d-flex">
       <div class= "separator">
-        <p>&nbsp</p>
+        <%# <p>&nbsp</p> %>
       </div>
       <div class="separator-me">
         <small >
@@ -24,7 +24,7 @@
         </small>
       </div>
       <div class= "separator text-test">
-        <p>&nbsp</p>
+        <%# <p>&nbsp</p> %>
       </div>
     </div>
     <p><%= simple_format(message.content) %></p>

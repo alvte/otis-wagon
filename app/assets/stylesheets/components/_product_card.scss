@@ -1,6 +1,7 @@
 .product_card {
   border: 1px solid black;
-  box-shadow: 4px 4px 4px 0px #212529;
+  background-color: white;
+  box-shadow: 3px -3px 3px rgba($gray, 0.75);
   border-radius: 10px;
   padding: 4px;
   display: flex;
@@ -19,6 +20,7 @@
   display: flex;
   width: 80px;
   height: 32px;
+  background-color: $orange;
   justify-content: center;
   align-items: center;
   border-radius: 32px;
@@ -26,7 +28,7 @@
   font-family: Source Code Pro;
   font-size: 12px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 21px;
   margin-top: 3px;
 }

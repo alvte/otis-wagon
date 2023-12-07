@@ -26,19 +26,20 @@
       <% end %>
     </div>
 
-    <%= simple_form_for [@chatroom, @message],
+    <div class="mb-4">
+      <%= simple_form_for [@chatroom, @message],
       html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex class: mb-3 w-100" } do |f|
-    %>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Your message...",
-        wrapper_html: {class: "flex-grow-1"}
       %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Your message...",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
 
-      <%# <%= f.submit 'SEND', class: "btn mb-3"%>
-      <%= button_tag type: 'submit', class: "btn mb-3 border-0" do%>
-      <i id="paper-plane" class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
+        <%# <%= f.submit 'SEND', class: "btn mb-3"%>
+        <%= button_tag type: 'submit', class: "btn mb-3 border-0" do%>
+        <i id="paper-plane" class="fa-regular fa-paper-plane text-success" aria-hidden="true"></i>
+        <% end %>
       <% end %>
-
-    <% end %>
+    </div>
   </div>
