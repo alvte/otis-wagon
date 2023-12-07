@@ -1,5 +1,4 @@
-
-<% if message.user != message.chatroom.professional.user %>
+<% unless message.user.professional.present? %>
   <div class="requester-message" id="message-<%= message.id %>" style='text-align:right' data-author="<%= message.user.nickname.downcase %>" data-chatroom-subscription-target="message">
     <div class="d-flex">
       <div class= "separator">
