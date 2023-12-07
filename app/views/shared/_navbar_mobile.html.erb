@@ -1,5 +1,5 @@
 <div class="navbar navbar-light navmobile">
-  <div class="container-fluid px-4 pb-4 ms-1">
+  <div class="container-fluid mx-4">
     <div id="cards-button">
         <%= link_to cards_path, class: "flex__item" do%>
             <div>
@@ -18,7 +18,7 @@
         <% end %>
       <% end %>
     </div>
-    <div>
+    <div class="mb-3">
         <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
         <%= f.input :from_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
         <%= button_tag type: 'submit', class: "marketplace-icon" do %>
