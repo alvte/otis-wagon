@@ -4,16 +4,16 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    if (!localStorage.getItem('visited')) {
+
+    if (!sessionStorage.getItem('visited')) {
       this.element.classList.remove('d-none');
       setTimeout(() => {
         this.element.classList.add('disappear');
       }, 2500)
-      localStorage.setItem('visited', 'true');
+      sessionStorage.setItem('visited', 'true');
       setTimeout(() => {
         this.element.classList.add('d-none');
       }, 5500)
-
     }
   }
 }
