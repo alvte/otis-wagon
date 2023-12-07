@@ -36,7 +36,7 @@
 }
 
 .inner-container > .sexual-relations {
-  border: 2px solid $red;
+  border: 1px solid $red;
   box-shadow: 3px -3px 3px rgba($red, 0.75);
 }
 
@@ -54,8 +54,8 @@
 }
 
 .inner-container > .self-pleasure {
-  border: 1px solid $orange;
-  box-shadow: 3px -3px 3px rgba($orange, 0.75);
+  border: 1px solid $violet;
+  box-shadow: 3px -3px 3px rgba($violet, 0.75);
 }
 
 
@@ -76,22 +76,22 @@
 }
 
 .card-box .sexual-relations {
-  background-color: rgba($red, .5);
+  background-color: rgba($red, 0.75);
 }
 
 
 .card-box .couple-life {
-  background-color: $blue;
+  background-color: rgba($blue, 0.75);
 
 }
 
 .card-box .disease {
-  background-color: $green;
+  background-color: rgba($green, 0.75);
 
 }
 
 .card-box .self-pleasure {
-background-color: $orange;
+background-color: rgba($violet, 0.75);
 }
 
 

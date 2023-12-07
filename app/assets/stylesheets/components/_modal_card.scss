@@ -11,6 +11,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
+  // border: none;
 }
 
 .modal-dialog {
@@ -37,7 +38,7 @@
 
 .modal-body {
   color: black;
-  font-family: Nunito;
+  font-family: Source Code Pro;
   font-size: 16px;
   font-style: normal;
   font-weight: 200;
@@ -94,6 +95,14 @@
 
 .modal-button-to-chat {
   border-radius: 32px;
-  background: var(--Black, #000);
+  border: none;
+  background: var(--light-blue, #74D7EE);
+  color: white;
+}
+
+.modal-button-to-market {
+  border-radius: 32px;
+  border: none;
+  background: var(--orange, #FF8C00);
   color: white;
 }

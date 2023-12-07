@@ -30,7 +30,7 @@
                   <%= simple_form_for :join, url: chatrooms_path, method: :post do |f| %>
                     <%= f.input :category, label: false, input_html: { value: card.title, class: "d-none" } %>
                     <%= f.input :from_card_marketplace, label: false, input_html: { value: true , class: "d-none" } %>
-                    <%= button_tag type: 'submit', class: "modal-button-to-chat" do %>
+                    <%= button_tag type: 'submit', class: "modal-button-to-market" do %>
                       Find products related to this topic!
                     <% end %>
                   <% end %>
