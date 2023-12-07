@@ -3,7 +3,7 @@
   <% product = Product.find(i) %>
         <div class="product_card">
           <%= cl_image_tag product.photos[0].key, crop: :fit %>
-          <%= product.name %>
+          <%= product.name.truncate(20) %>
           <br>
           <%= product.price %>€
           <%= render partial: "shared/modal_product", locals: {product: product, message: @message} %>
