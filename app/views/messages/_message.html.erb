@@ -1,6 +1,6 @@
 
 <% if message.user != message.chatroom.professional.user %>
-  <div class="requester-message" id="message-<%= message.id %>" style='text-align:right'>
+  <div class="requester-message" id="message-<%= message.id %>" style='text-align:right' data-author="<%= message.user.nickname.downcase %>" data-chatroom-subscription-target="message">
     <div class="d-flex">
       <div class= "separator">
         <p>&nbsp</p>
@@ -15,7 +15,7 @@
       <p><%= simple_format(message.content) %></p>
   </div>
 <% else %>
-  <div class="answer-message" id="message-<%= message.id %>">
+  <div class="answer-message" id="message-<%= message.id %>" data-author="<%= message.user.nickname.downcase %>" data-chatroom-subscription-target="message">
     <div class="d-flex">
       <div class="separator-others">
         <small>
