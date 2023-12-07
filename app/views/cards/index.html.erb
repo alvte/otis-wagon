@@ -1,3 +1,7 @@
+<div class="welcome-animation d-none" data-controller="home">
+  <%= image_tag("logo_agathe.png", class: "image-home") %>
+</div>
+
 <div class="search-form-control form-group">
 <%= form_tag(cards_path, method: :get) do %>
     <%= text_field_tag :query, params[:query], class: "form-control string required", placeholder: "Search for a title or a category...", aria: { label: "Search" } %>
