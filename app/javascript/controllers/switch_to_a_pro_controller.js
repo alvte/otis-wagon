@@ -21,8 +21,8 @@ export default class extends Controller {
         "X-CSRF-Token": csrfToken // Include the CSRF token in the headers
       }
     });
-    this.toggleTarget.checked = false;
-    document.getElementById("toggletext").innerText = "";
+    this.toggleTarget.checked = true;
+    // document.getElementById("toggletext").innerText = "Chating with one of our pro";
     document.getElementById("message_content").style.borderColor = "#FFAFC8";
     document.getElementById("paper-plane").style.color = "#FFAFC8";
     document.getElementById("paper-plane").classList.remove("text-success");
