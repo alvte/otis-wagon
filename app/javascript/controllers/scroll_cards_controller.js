@@ -28,13 +28,13 @@ export default class extends Controller {
 
   open_card(event) {
     const cardIndex = event.target.parentElement.parentElement.dataset.scrollCardsValue;
+    this.innerContainerTarget.style.height = '1175px'
     this.cardTargets.forEach(card => {
       const otherCardIndex = card.dataset.scrollCardsValue;
       if (cardIndex < otherCardIndex) {
         const position = (Number(otherCardIndex) * 250) - 250;
         card.style.bottom = `${position}px`;
         event.target.parentElement.parentElement.classList.add('pushed-down');
-        this.innerContainerTarget.style.height = `${this.lastCard.offsetTop + this.lastCard.offsetHeight + 310}px`
       }
     })
   }
@@ -48,7 +48,7 @@ export default class extends Controller {
       if (card.classList.contains('pushed-down')) {
         card.classList.remove('pushed-down')
       }
-      this.innerContainerTarget.style.height = this.heightValue + 50
+      this.innerContainerTarget.style.height = this.heightValue
     })
   }
 }
