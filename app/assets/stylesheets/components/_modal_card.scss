@@ -46,6 +46,7 @@
   letter-spacing: 0.374px;
   white-space: break-spaces;
   text-align: justify;
+  padding-bottom: 0px;
 }
 
 .modal-rectangle {
@@ -94,15 +95,21 @@
 }
 
 .modal-button-to-chat {
-  border-radius: 32px;
+  border-radius: 8px;
   border: none;
   background: var(--light-blue, #74D7EE);
   color: white;
+  line-height: normal;
+  padding: 6px;
+  font-size: smaller;
 }
 
 .modal-button-to-market {
-  border-radius: 32px;
+  border-radius: 8px;
   border: none;
   background: var(--orange, #FF8C00);
   color: white;
+  line-height: normal;
+  padding: 6px;
+  font-size: smaller;
 }
