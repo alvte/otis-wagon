@@ -38,9 +38,15 @@
   border: 1px solid black;
   width: 40px;
   font-size: larger;
+  font-weight: bold;
   height: 40px;
   align-items: center;
   justify-content: center;
+  color: black;
+}
+
+.my-icon-to-log button a{
+  color: black;
 }
 
 .dropdown-homemade li {
@@ -53,7 +59,7 @@
 }
 
 .dropdown-homemade a:hover {
-  color: blue;
+  color: rgb(1, 1, 1);
 }
 
 #logo-inline {
