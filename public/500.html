@@ -29,6 +29,24 @@ body{ background: #6BA1CA; }
   text-align: center;
 }
 
+.redirect_home .error-500{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'VT323';
+  color: #1E4B6D;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, .3);
+  text-align: center; /* Center the text */
+}
+
+.redirect_home p {
+  margin-top: 15px; /* Adjust the margin as needed */
+  text-align: center;
+  font-size: 25px;
+  padding-bottom: 26px;
+}
+
 spaguetti{
   width: var(--width);
   height: var(--height);
@@ -132,7 +150,13 @@ fork{
 
 <body>
   <div class="error-500" data-text="Oh no! Our spaghetti code is not working properly. We will be back soon!">
-    <spaguetti>
+    <div class="redirect_home">
+    <p> Open AI is currently down for maintenance.
+      <br/>
+      <a href="https://www.otisapp.xyz/">Go Back</a>
+      or visit here later.</p>
+    </div>
+  <spaguetti>
     <fork></fork>
     <meat></meat>
     <pasta></pasta>
