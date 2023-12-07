@@ -24,7 +24,7 @@
   background-color: $orange;
   justify-content: center;
   align-items: center;
-  border-radius: 32px;
+  border-radius: 8px;
   color: rgb(255, 255, 255);
   font-family: Source Code Pro;
   font-size: 12px;
@@ -32,5 +32,13 @@
   font-weight: 400;
   line-height: 21px;
   margin-top: 3px;
+  margin-bottom: 10px;
   border: none;
+}
+
+.button-dare {
+  background: $orange;
+  color:white;
+  border: none;
+  border-radius: 8px;
 }
