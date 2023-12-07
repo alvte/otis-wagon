@@ -13,8 +13,8 @@ export default class extends Controller {
       const position = card.dataset.scrollCardsValue * 250;
       card.style.bottom = `${position}px`;
     });
-    this.heightValue = `${this.lastCard.offsetTop + this.lastCard.offsetHeight}px`
-    this.innerContainerTarget.style.height = this.heightValue
+    this.heightValue = `${this.lastCard.offsetTop + this.lastCard.offsetHeight + 85}px`
+    this.innerContainerTarget.style.height = this.heightValue;
   }
 
   push_down(event) {
@@ -34,7 +34,7 @@ export default class extends Controller {
         const position = (Number(otherCardIndex) * 250) - 250;
         card.style.bottom = `${position}px`;
         event.target.parentElement.parentElement.classList.add('pushed-down');
-        this.innerContainerTarget.style.height = `${this.lastCard.offsetTop + this.lastCard.offsetHeight + 260}px`
+        this.innerContainerTarget.style.height = `${this.lastCard.offsetTop + this.lastCard.offsetHeight + 310}px`
       }
     })
   }
@@ -48,7 +48,7 @@ export default class extends Controller {
       if (card.classList.contains('pushed-down')) {
         card.classList.remove('pushed-down')
       }
-      this.innerContainerTarget.style.height = this.heightValue
+      this.innerContainerTarget.style.height = this.heightValue + 50
     })
   }
 }
