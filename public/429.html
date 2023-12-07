@@ -4,147 +4,120 @@
   <title>Sorry small indie company (429)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-@import url("https://fonts.googleapis.com/css?family=Fredoka+One");
+    @import url("https://fonts.googleapis.com/css?family=Fredoka+One");
 
-* {
-	box-sizing: border-box;
-}
-body {
-	height: 100vh;
-	width: 100%;
+    * {
+      box-sizing: border-box;
+    }
 
-	font-family: "Fredoka One", cursive;
+    body {
+      height: 100vh;
+      width: 100%;
+      font-family: "Fredoka One", cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.loader {
-	width: 30vw;
-	text-align: center;
+    .loader {
+      width: 30vw;
+      text-align: center;
 
-	* {
-		transition: 0.3s;
-	}
-	.progress {
-		width: 100%;
-		height: 0.5rem;
-		background: rgba(0, 0, 0, 0.1);
-		border-radius: 5rem;
-		margin: 0.5rem 0;
-		overflow: hidden;
+      * {
+        transition: 0.3s;
+      }
 
-		.current {
-			background: black;
-			height: 100%;
+      .progress {
+        width: 100%;
+        height: 0.5rem;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 5rem;
+        margin: 0.5rem 0;
+        overflow: hidden;
 
-			animation: progress 5s ease-in-out;
-			animation-fill-mode: forwards;
-		}
-	}
-	.icon {
-		height: 5vw;
-		position: relative;
-		text-align: left;
-		svg {
-			position: absolute;
-			height: 5vw;
-			width: auto;
+        .current {
+          background: black;
+          height: 100%;
+          width: 0; /* Set the initial width to 0% */
+          animation: progress 17s ease-in-out;
+          animation-fill-mode: forwards;
+        }
+      }
 
-			animation: position 5s ease-in-out;
-			animation-fill-mode: forwards;
-		}
-	}
-	.info {
-		letter-spacing: 3px;
-		font-size: 1.25rem;
-	}
-	.error {
-		transform: scale(0);
-		transition-delay: 0.5s;
+      .icon {
+        height: 5vw;
+        position: relative;
+        text-align: left;
 
-		p + p {
-			font-size: 0.9rem;
-			color: #37474f;
-		}
-		a {
-			display: block;
-			height: 24px;
-			width: 24px;
-			background: black;
-			border-radius: 50%;
-			margin: 0.5rem auto;
+        svg {
+          position: absolute;
+          height: 5vw;
+          width: auto;
+          animation: position 5s ease-in-out;
+          animation-fill-mode: forwards;
+        }
+      }
 
-			svg {
-				fill: white;
-			}
-		}
-	}
-}
+      .info {
+        letter-spacing: 3px;
+        font-size: 1.25rem;
+      }
 
-.timeout .loader {
-	.progress {
-		transform: scale(0);
-	}
-	.icon svg {
-		transform: scale(0);
-	}
-	.info {
-		transform: scaley(0);
-	}
-	.error {
-		transform: scale(1) translatey(-4rem);
-	}
-	.footer {
-		opacity: 0;
-	}
-}
+      .error {
+        transform: scale(0);
+        transition-delay: 0.5s;
 
-@keyframes position {
-	0% {
-		left: -10%;
-	}
-	25% {
-		left: 15%;
-	}
-	50% {
-		left: 30%;
-	}
-	100% {
-		left: 70%;
-	}
-}
+        p + p {
+          font-size: 0.9rem;
+          color: #37474f;
+        }
 
-@keyframes progress {
-	0% {
-		width: 0%;
-	}
-	25% {
-		width: 25%;
-	}
-	50% {
-		width: 40%;
-	}
-	100% {
-		width: 80%;
-	}
-}
+        a {
+          display: block;
+          height: 24px;
+          width: 24px;
+          background: black;
+          border-radius: 50%;
+          margin: 0.5rem auto;
 
-.footer {
-	position: fixed;
-	bottom: 1rem;
+          svg {
+            fill: white;
+          }
+        }
+      }
+    }
 
-	font-size: 0.65rem;
+    @keyframes position {
+      0% {
+        left: -10%;
+      }
+      25% {
+        left: 15%;
+      }
+      50% {
+        left: 30%;
+      }
+      100% {
+        left: 70%;
+      }
+    }
 
-	transition: 0.3s;
-
-	a {
-		color: black;
-	}
-}
-
-
+    @keyframes progress {
+      0% {
+        width: 0%;
+      }
+      25% {
+        width: 25%;
+      }
+      50% {
+        width: 40%;
+      }
+      100% {
+        width: 80%;
+      }
+    }
   </style>
+
 </head>
 
 <body>
@@ -157,7 +130,7 @@ body {
     <div class="error">
       <p>Error Timeout</p>
       <p>you can only push someone so far before they break</p>
-      <a href="javascript:window.location.href = window.location.href;"><svg width="24" height="24" viewBox="0 0 24 24">
+      <a href="https://www.otisapp.xyz/"><svg width="24" height="24" viewBox="0 0 24 24">
     <path d="M19,8L15,12H18A6,6 0 0,1 12,18C11,18 10.03,17.75 9.2,17.3L7.74,18.76C8.97,19.54 10.43,20 12,20A8,8 0 0,0 20,12H23M6,12A6,6 0 0,1 12,6C13,6 13.97,6.25 14.8,6.7L16.26,5.24C15.03,4.46 13.57,4 12,4A8,8 0 0,0 4,12H1L5,16L9,12"></path>
   </svg></a></div>
   </div>
@@ -165,8 +138,8 @@ body {
 
 <script>
 setTimeout(function () {
-	document.body.classList.add("timeout");
-}, 7000);
+  document.body.classList.add("timeout");
+}, 15000);
 </script>
 
 </html>
