@@ -1,5 +1,5 @@
 .chatroom {
-  background: radial-gradient(45% 35% at 35% 35%, $light-blue 0%, #FFF 100%);
+  background: radial-gradient(65% 65% at 55% 85%, $light-blue 0%, #FFF 100%);
   margin-top: 9px;
   height: 85vh;
   display: flex;
@@ -119,4 +119,14 @@
 
 .from-self-pleasure {
   background: radial-gradient(70% 50% at 55% 20%, $orange 0%, #FFF 100%);
+}
+
+
+
+.answer-message p{
+  margin-top: -10px;
+}
+
+.requester-message p{
+  margin-top: -10px;
 }
