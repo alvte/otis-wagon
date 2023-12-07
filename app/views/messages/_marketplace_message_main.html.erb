@@ -1,8 +1,12 @@
-<div class="products_caroussel">
+<div class="products_caroussel p-2">
 <% JSON.parse(response).each do |i| %>
   <% product = Product.find(i) %>
-    <div class="product_card">
-      <p>Je suis <%= product.name %> - <%=product.description%> - <%= product.price %></p>
-    </div>
+        <div class="product_card">
+          <%= cl_image_tag product.photos[0].key, crop: :fit %>
+          <%= product.name %>
+          <br>
+          <%= product.price %>€
+          <%= render partial: "shared/modal_product", locals: {product: product, message: @message} %>
+        </div>
   <% end %>
 </div>
