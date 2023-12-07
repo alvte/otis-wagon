@@ -8,11 +8,11 @@ export default class extends Controller {
       this.element.classList.remove('d-none');
       setTimeout(() => {
         this.element.classList.add('disappear');
-      }, 1500)
+      }, 2500)
       localStorage.setItem('visited', 'true');
       setTimeout(() => {
         this.element.classList.add('d-none');
-      }, 3500)
+      }, 5500)
 
     }
   }
